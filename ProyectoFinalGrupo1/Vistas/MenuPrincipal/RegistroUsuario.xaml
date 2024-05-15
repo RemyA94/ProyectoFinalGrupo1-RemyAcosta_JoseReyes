@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinalGrupo1.Vistas.MenuPrincipal.RegistroUsuario">
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <Grid
+        BackgroundColor="white"
+        RowDefinitions="90,600"
+        RowSpacing="25"
+        Padding="25">
+
+                <Frame
+            Grid.Row="0"
+            BackgroundColor="Transparent"
+            BorderColor="green">
+                    <Label 
+                Text="Registro de Usuario"
+                TextColor="blue"
+                FontSize="25"
+                FontAttributes="Bold"
+                HorizontalOptions="CenterAndExpand"
+                VerticalTextAlignment="Center"/>
+                </Frame>
+                <Frame Grid.Row="1" Margin="0,30" BackgroundColor="Transparent" BorderColor="green" HasShadow="true"  CornerRadius="50"
+               >
+                    <StackLayout Padding="15">
+
+                        <Entry Placeholder="Email"
+                   x:Name="txtemail" Keyboard="Email"></Entry>
+
+                        <Entry Placeholder="Contraseña"
+                   x:Name="txtclave" IsPassword="True"></Entry>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid
+                                RowSpacing="25">
+                                <CheckBox x:Name="chkAceptaTerminos" Grid.Row="3" Grid.Column="0" Color="#1964BE" VerticalOptions="Center"></CheckBox>
+                                <Label Grid.Row="3" Grid.Column="1" VerticalOptions="Center">Acepto los</Label>
+                                <Label Grid.Row="3" Grid.Column="2" TextColor="#1964BE" TextDecorations="Underline" VerticalOptions="Center">términos y condiciones
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="TapLabelTerminosCondiciones" Tapped="TapLabelTerminosCondiciones_Tapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                            </Grid>
+
+                        </Grid>
+
+                        <Button x:Name="btnRegistrar"  Text="Registrarme" BackgroundColor="#1964BE" TextColor="White" Clicked="btnRegistrar_Clicked"/>
+
+                    </StackLayout>
+                </Frame>
+            </Grid>
+
+            <ContentView x:Name="popupTerminosCondiciones" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Frame Margin="10" Padding="10" BackgroundColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout>
+                        <Label LineBreakMode="WordWrap">
+                            Este documento es utilizado para regular las condiciones y reglas a las que se someten tanto los usuarios de un sitio web como su propietario y/o administrador, en lo referente al acceso y utilización del sitio web. De igual manera, hace referencia a las políticas de privacidad, protección de datos personales, enlaces, etc., que se tomarán para proteger la privacidad de los usuarios.
+
+Dichas reglas y principios aportan un mayor nivel de confianza y seguridad jurídica a los usuarios del sitio web así como a sus propietarios y/o administradores, puesto que también se establece el tipo de personas a las que va dirigido y las responsabilidades que estos adquieren al hacer uso del sitio o de los servicios que en él son ofrecidos.
+                        </Label>
+                        <Button HorizontalOptions="FillAndExpand" BackgroundColor="#1964BE" Opacity="1" TextColor="White" x:Name="btnCerrarModal" Clicked="btnCerrarModal_Clicked"  Text="Aceptar"></Button>
+
+                    </StackLayout>
+                </Frame>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+
+
+
+</ContentPage>

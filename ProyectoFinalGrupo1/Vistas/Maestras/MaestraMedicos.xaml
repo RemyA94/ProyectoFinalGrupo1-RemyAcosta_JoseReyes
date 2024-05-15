@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinalGrupo1.Vistas.Maestras.MaestraMedicos">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Margin="10,20,9,5" 
+                    RowDefinitions="70,*">
+                    <Label Text="Maestra de Medicos" FontSize="20" FontAttributes="Bold"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center"
+                       TextColor="Black"
+                       HeightRequest="180" Margin="0,-15"/>
+
+                    <ImageButton Source="volvericon.png" HeightRequest="30" HorizontalOptions="Start" IsVisible="false"
+                             Margin="15,30,10,10" BackgroundColor="Transparent" Command="{Binding VolverCommand}"/>
+
+                    <ImageButton Source="buscar30x30.png" HeightRequest="30" HorizontalOptions="End" IsVisible="false"
+                             Margin="15,35,10,10" BackgroundColor="Transparent" Command="{Binding BuscarAlmacenesCommand}"/>
+
+                    <Frame Grid.Row="1" Padding="0" Margin="0,-55,0,-50" 
+                        BackgroundColor="LightBlue">
+                        <StackLayout Margin="10">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="IdMedico:" TextColor="Black"
+                                   FontSize="14" FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+                                <Label Text="{Binding txtidmedico}"
+                                   FontSize="14" TextColor="Black"
+                                   HorizontalOptions="Start"
+                                   BackgroundColor="{Binding ColorFondoId}"/>
+
+                                <Label Text="Fecha Reg.:" TextColor="Black"
+                                   HorizontalOptions="StartAndExpand" FontSize="14" FontAttributes="Bold"
+                                   VerticalOptions="StartAndExpand" Margin="0,0,0,0"/>
+                                <Label Text="{Binding txtfecharegistro}" FontSize="14" TextColor="Black"
+                                   HorizontalOptions="StartAndExpand" Margin="0,0,0,0"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Nombre:" TextColor="Black"
+                                   FontSize="14" FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+                                <Entry Text="{Binding txtnombremedico}" Keyboard="Text"
+                                   FontSize="14" TextColor="Black"
+                                   HorizontalOptions="FillAndExpand"
+                                   Placeholder="Nombre del Medico" 
+                                   PlaceholderColor="Gray"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Apellido: " TextColor="Black"
+                                   FontSize="14" FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+                                <Entry Text="{Binding txtapellidomedico}" Keyboard="Text"
+                                   FontSize="14" TextColor="Black"
+                                   HorizontalOptions="FillAndExpand"
+                                   Placeholder="Apellido del Medico"
+                                   PlaceholderColor="Gray"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" Grid.Row="6" Grid.Column="0">
+                                <Label Text="Especialidad:"
+                                        FontSize="14"
+                                        FontAttributes="Bold"
+                                        VerticalOptions="Center"
+                                        TextColor="black"/>
+                                        <Picker HorizontalOptions="FillAndExpand"
+                                            ItemsSource="{Binding Listaespecialidad}"
+                                            ItemDisplayBinding="{Binding txtnombreespecialidad}"
+                                            SelectedItem="{Binding SelectEspecialidad}"
+                                            Title="Elija especialidad"
+                                            TextColor="black"
+                                            Margin="5,-10,0,0"
+                                            FontSize="11"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Genero:" TextColor="Black"
+                                   FontSize="14" FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+                                <Entry Text="{Binding txtgenero}" FontSize="14" 
+                                   TextColor="Black" x:Name="txtgenero" IsEnabled="true" Margin="0,0,200,0"
+                                   HorizontalOptions="FillAndExpand" 
+                                   Placeholder="Sexo" PlaceholderColor="Gray" BackgroundColor="#Transparent"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Teléfono:" TextColor="Black"
+                                   FontSize="14" FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+                                <Entry Text="{Binding txttelefono}" Keyboard="Telephone"
+                                   FontSize="14" TextColor="Black"
+                                   HorizontalOptions="FillAndExpand"
+                                   Placeholder="809 000 0000"
+                                   PlaceholderColor="Gray"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Email:" TextColor="Black"
+                                   FontSize="14" FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+                                <Entry Text="{Binding txtemail}" Keyboard="Email"
+                                   FontSize="14" TextColor="Black"
+                                   HorizontalOptions="FillAndExpand"
+                                   Placeholder="Correo Electronico"
+                                   PlaceholderColor="Gray"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" 
+                                     HeightRequest="40">
+                                <Label Text="Inactivo:" TextColor="Black"
+                                   HorizontalOptions="FillAndExpand"
+                                   FontSize="15" FontAttributes="Bold"
+                                   VerticalOptions="CenterAndExpand"/>
+                                <CheckBox Color="RoyalBlue" Margin="-1,2"
+                                      WidthRequest="280" 
+                                      VerticalOptions="StartAndExpand" 
+                                      IsChecked="{Binding ChkEstadoValidar}"/>
+                            </StackLayout>
+
+
+                            <StackLayout Orientation="Horizontal">
+                                <ImageButton Source="modificar.png" HeightRequest="55" WidthRequest="50" Margin="300,0,0,0"
+                                         BackgroundColor="Transparent" 
+                                         IsEnabled="{Binding IsEnebledModificar}"
+                                         Command="{Binding ModificarCommand}"/>
+
+                                <ImageButton Source="borrar.png" HeightRequest="55" WidthRequest="50" Margin="-110,0,0,0"
+                                         BackgroundColor="Transparent" HorizontalOptions="End" 
+                                         IsEnabled="{Binding IsEnebledBorrar}"
+                                         Command="{Binding BorrarCommand}"/>
+
+                                <Image Source="almacen" HeightRequest="0" WidthRequest="50" Margin="-300,0,0,0"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <StackLayout Grid.Row="2" HorizontalOptions="Fill" WidthRequest="275" Orientation="Vertical" Margin="10">
+                        <Grid Margin="30" Padding="0,5,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout Grid.Row="1" HorizontalOptions="Center" WidthRequest="275" Orientation="Vertical" Margin="10">
+                                <Button Text="Crear" TextColor="White" FontSize="16"
+                                    BackgroundColor="DarkGreen" 
+                                    BorderColor="Gray" BorderWidth="1" 
+                                    CornerRadius="50" HeightRequest="55"
+                                    IsEnabled="{Binding IsEnebledCrear}"
+                                    Command="{Binding CrearCommand}"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="2" HorizontalOptions="Center" WidthRequest="275" Orientation="Vertical" Margin="10">
+                                <Button Text="Guardar Cambios" TextColor="White" FontSize="16"
+                                    BackgroundColor="RoyalBlue" x:Name="btnguardar"
+                                    BorderColor="Gray" BorderWidth="1" 
+                                    CornerRadius="50" HeightRequest="55"
+                                    IsEnabled="{Binding IsEnebledGuardar}"
+                                    Command="{Binding GuardarCambiosCommand}"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="3" HorizontalOptions="Center" WidthRequest="275" Orientation="Vertical" Margin="10">
+                                <Button Text="Cancelar" TextColor="White" FontSize="16"
+                                    BackgroundColor="DarkRed" x:Name="btncancelar"
+                                    BorderColor="Gray" BorderWidth="1" 
+                                    CornerRadius="50" HeightRequest="55"
+                                    IsEnabled="{Binding IsEnebledCancelar}"
+                                    Command="{Binding CancelarCommand}"/>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                             AbsoluteLayout.LayoutBounds ="0,0,1,1" 
+                             AbsoluteLayout.LayoutFlags="All"
+                             BackgroundColor="Transparent" Padding="10.0"  
+                             IsVisible="{Binding IsVisible}">
+                        <ActivityIndicator 
+                             IsRunning="{Binding CorrerBarra}"
+                             IsVisible="{Binding IsVisible}"
+                             Color="RoyalBlue"
+                             Scale="0.8"/>
+                    </StackLayout>
+                </Grid>
+
+
+
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="ProyectoFinalGrupo1.Vistas.MenuPrincipal.Empezar"
+             
+             >
+    <Grid BackgroundColor="blue">
+        <StackLayout>
+            
+            <forms:AnimationView x:Name="animacion" Grid.Row="0"
+                                 Animation="rompecorazon.json"
+                                 HeightRequest="110"
+                                 WidthRequest="80"
+                                 AutoPlay="true"
+                                 RepeatMode="Infinite"
+                                 VerticalOptions="Center"/>
+
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         Spacing="60">
+                <Label Text="Clínica la rompe hoyo"
+                       TextColor="white"
+                       HorizontalOptions="Center"
+                       FontSize="27"/>
+                <Image Source="oym.png"
+                       HeightRequest="140" 
+                       BackgroundColor="cyan"/>
+                <Label Text="Elaborado por: Grupo 1 - Remy Acosta y José Reyes"
+                       TextColor="white"
+                       HorizontalOptions="Center"
+                       FontSize="20"
+                       HorizontalTextAlignment="Center" />
+            </StackLayout>
+            <Grid VerticalOptions="EndAndExpand"
+                  Margin="20">
+                <Button Text="Empezar"
+                        TextColor="white"
+                        BackgroundColor="lightblue"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        CornerRadius="10"
+                        Command="{Binding Navegarmenuprincipalcommand}"
+                        />
+                <Image Source="manoderecha.png"
+                       HeightRequest="30"
+                       HorizontalOptions="End"
+                       Margin="0,0,18,0" />
+
+            </Grid>
+
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

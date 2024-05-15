@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinalGrupo1.Vistas.Configuracion">
+    <ScrollView>
+        <StackLayout Margin="20,50">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="http://assets.stickpng.com/images/585e4695cb11b227491c3373.png"
+           HeightRequest="30">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Volvercommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="Configuración de perfil"
+           FontAttributes="Bold"
+           TextColor="Black"
+           FontSize="17"
+           VerticalOptions="Center" />
+
+            </StackLayout>
+            <Frame Padding="0"
+          WidthRequest="150"
+          HeightRequest="150"
+          CornerRadius="75"
+          HorizontalOptions="Center"
+          Margin="0,15,0,0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SeleccionarfotoCommand}"/>
+                </Frame.GestureRecognizers>
+                <Image Source="{Binding Fotouser}"
+           Aspect="AspectFill"/>
+            </Frame>
+            <Entry Placeholder="Nombres"
+         Style="{StaticResource entryRegistro}"
+          Text="{Binding Txtnombre}"/>
+            <Entry Placeholder="Apellidos"
+          Style="{StaticResource entryRegistro}"
+          Text="{Binding Txtapellido}"/>
+            <StackLayout Orientation="Horizontal"
+                Margin="0,20,0,0">
+                <Image Source="https://i.ibb.co/gSxHgkn/correo-electronico-1.png"
+           HeightRequest="30" />
+                <Label Text="{Binding muserRecibe.correo}"
+           TextColor="Gray"
+           FontAttributes="Bold"
+           VerticalOptions="Center"
+           FontSize="18" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                Margin="0,20,0,0">
+                <Image Source="https://i.ibb.co/mhxyTXb/edificio.png"
+           HeightRequest="30" />
+                <Label Text="Lima"
+           TextColor="Black"
+           FontAttributes="Bold"
+           VerticalOptions="Center"
+           FontSize="18" />
+
+            </StackLayout>
+            <Button Style="{StaticResource btnguardar}" 
+           VerticalOptions="EndAndExpand"
+           Command="{Binding Guardarcommand}"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

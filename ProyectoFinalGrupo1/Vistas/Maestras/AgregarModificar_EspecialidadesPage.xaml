@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinalGrupo1.Vistas.Maestras.AgregarModificar_EspecialidadesPage">
+
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem 
+               
+            Text="Registrar"
+            Order="Primary"
+            Command="{Binding NavegarEspecialidadCommand}">
+            
+        </ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <StackLayout Grid.Row="0" 
+                         WidthRequest="275" 
+                         HeightRequest="20" 
+                         HorizontalOptions="Start" Margin="30,30,0,30">
+
+                <Frame Padding="10,4,0,4" 
+                       HasShadow="True" 
+                       CornerRadius="15" 
+                       BackgroundColor="LightGray">
+                    <SearchBar Placeholder="Buscar por especialidad.." 
+                               Keyboard="Chat" 
+                               TextChanged="SearchBar_TextChanged"  
+                               MaxLength="30" 
+                               FontSize="15" 
+                               HeightRequest="35"
+                               >
+
+                    </SearchBar>
+                </Frame>
+            </StackLayout>
+
+            <Frame Grid.Row="3"
+               CornerRadius="15"
+               Margin="15,0,15,0"
+               HasShadow="False"
+               BackgroundColor="white">
+                <!-- ItemSelected=
+                seleccionar new event Handler
+                -->
+                <StackLayout>
+                    <ListView BackgroundColor="white"
+                          x:Name="ListViewEspecialidades"
+                              
+                          ItemSelected="ListViewEspecialidades_ItemSelected"
+        
+                              ItemsSource="{Binding ListaEspecialidades}">
+                        <ListView.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <ViewCell Height="30">
+                                    <StackLayout
+                        
+                    VerticalOptions="FillAndExpand"
+                        Padding="5"
+                        BackgroundColor="Blue">
+                                        <Label
+                            Text="{Binding Key}"
+                            TextColor="red"
+                                        
+                            VerticalOptions="Center"
+                            HeightRequest="25"></Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.GroupHeaderTemplate>
+
+                        <!-- MUESTRA LOS ITEMS DE LAS TABLAS DE FIREBASE
+                        -->
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="auto"/>
+
+                                        </Grid.ColumnDefinitions>
+
+
+                                        <Label
+                            Grid.Column="0"
+                                            TextColor="black"
+                            Text= "{Binding Id_Especialidad}"
+                                            FontSize="11"/>
+                                        <Label
+                            Grid.Column="1"
+                                            TextColor="black"
+                            Text="{Binding Especialidad}"
+                                            FontSize="11"></Label>
+                                        <Label
+                            Grid.Column="2"
+                                            TextColor="black"
+                            Text="{Binding Estado}"
+                                            
+                                            FontSize="11"></Label>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+
+                </StackLayout>
+
+            </Frame>
+
+
+            <Label Text="Click Edita el Registro"
+                           FontSize="25"
+                           FontAttributes="Bold"
+                           TextColor="DarkBlue"
+                           HorizontalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
