@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="ProyectoFinalGrupo1.Vistas.MenuPrincipal.MenuMantenimiento"
-             Title="MENU MANTENIMIENTO">
+             Title="MANTENIMIENTO SOCIOS">
     <Grid
         BackgroundColor="blue"
         RowDefinitions="140, *,70"
@@ -15,7 +15,7 @@
             BorderColor="#FFFFFF">
             <StackLayout>
                 <Label 
-                    Text="Clínica Rompe Corazones"
+                    Text="Libreria Grupo 1"
                     TextColor="LightGray"
                     FontSize="27"
                     HorizontalOptions="CenterAndExpand" />
@@ -24,7 +24,7 @@
 
                     <StackLayout Grid.Row="0" Grid.Column="0">
                         <forms:AnimationView x:Name="animacion" Grid.Row="0"
-                                 Animation="rompecorazon.json"
+                                 Animation="LibrosPresentacion.json"
                                   HeightRequest="60"
                                      HorizontalOptions="End"
                                 WidthRequest="80"
@@ -33,12 +33,6 @@
                                  VerticalOptions="Center"/>
                     </StackLayout>
 
-
-                    <StackLayout Grid.Row="0" Grid.Column="1">
-                        <Image Source="oym.png"
-                       HeightRequest="60" 
-                       BackgroundColor="blue"/>
-                    </StackLayout >
 
                     <StackLayout Grid.Row="0" Grid.Column="2">
                         <Label 
@@ -63,11 +57,11 @@
                     Orientation="Horizontal"
                     Grid.Row="0">
                     <Image 
-                        Source="mantenimientoicon"
+                        Source="user"
                         Grid.Column="0"
                         WidthRequest="40"/>
                     <Label
-                        Text="Manteniniemto socios"
+                        Text="Listado socios"
                         TextColor="White"
                         FontSize="15"
                         Grid.Column="1"
@@ -76,23 +70,28 @@
                         <TapGestureRecognizer Command="{Binding NavegarEspecialidadescommand}" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
+               
+                <!--
+                
                 <StackLayout 
-                    Orientation="Horizontal"
-                    Grid.Row="1">
-                    <Image 
-                        Source="reportesicon"
-                        Grid.Column="0"
-                        WidthRequest="40"/>
-                    <Label
-                        Text="Médicos"
-                        TextColor="white"
-                        FontSize="15"
-                        Grid.Column="1"
-                        VerticalOptions="Center"/>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NavegarMedicoscommand}" />
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
+                 Orientation="Horizontal"
+                 Grid.Row="1">
+                 <Image 
+                     Source="reportesicon"
+                     Grid.Column="0"
+                     WidthRequest="40"/>
+                 <Label
+                     Text="Médicos"
+                     TextColor="white"
+                     FontSize="15"
+                     Grid.Column="1"
+                     VerticalOptions="Center"/>
+                 <StackLayout.GestureRecognizers>
+                     <TapGestureRecognizer Command="{Binding NavegarMedicoscommand}" />
+                 </StackLayout.GestureRecognizers>
+             </StackLayout>
+                -->
+
                 
             </Grid>
         </Frame>

@@ -7,7 +7,7 @@
 
         <ToolbarItem 
                
-            Text="Registrar"
+            Text="Registrar socio"
             Order="Primary"
             Command="{Binding NavegarEspecialidadCommand}">
             

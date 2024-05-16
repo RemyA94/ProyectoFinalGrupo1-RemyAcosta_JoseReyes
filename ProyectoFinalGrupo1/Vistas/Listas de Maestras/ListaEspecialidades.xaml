@@ -4,7 +4,7 @@
              x:Class="ProyectoFinalGrupo1.Vistas.Listas_de_Maestras.ListaEspecialidades">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="LISTA ESPECIALIDADES"
+            <Label Text="LISTA SOCIOS"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
