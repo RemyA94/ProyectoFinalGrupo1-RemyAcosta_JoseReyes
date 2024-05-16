@@ -10,19 +10,21 @@ using Xamarin.Forms.Xaml;
 
 namespace ProyectoFinalGrupo1.Vistas.MenuPrincipal
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Login : ContentPage
-    {
-        public Login()
-        {
-            InitializeComponent();
-            BindingContext = new VMlogin(Navigation);
-        }
+   [XamlCompilation(XamlCompilationOptions.Compile)]
+   public partial class Login : ContentPage
+   {
+      public Login()
+      {
+         InitializeComponent();
+         BindingContext = new VMlogin(Navigation);
+      }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            //Navigation.PushAsync(new PageRegistrar());
-            Navigation.PushAsync(new RegistroUsuario());
-        }
-    }
+      private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+      {
+         //Navigation.PushAsync(new PageRegistrar());
+         //Navigation.PushAsync(new RegistroUsuario());
+         await Navigation.PushAsync(new NavigationPage(new RegistroUsuario()));
+
+      }
+   }
 }

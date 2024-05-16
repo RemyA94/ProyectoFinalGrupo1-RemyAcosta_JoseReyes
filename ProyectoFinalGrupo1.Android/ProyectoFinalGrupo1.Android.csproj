@@ -68,6 +68,9 @@
     <AndroidAsset Include="Assets\rompecorazon.json" />
     <AndroidAsset Include="Assets\LibrosPresentacion.json" />
     <AndroidAsset Include="Assets\LoginAnimacion.json" />
+    <AndroidAsset Include="Assets\RegistroAnimacion.json" />
+    <AndroidAsset Include="Assets\RegistroExitoso.json" />
+    <AndroidAsset Include="Assets\Success.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
