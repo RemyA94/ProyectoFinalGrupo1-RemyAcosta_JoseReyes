@@ -3,52 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="ProyectoFinalGrupo1.Vistas.MenuPrincipal.Empezar"
+             NavigationPage.HasNavigationBar="False">
              
-             >
-    <Grid BackgroundColor="blue">
-        <StackLayout>
-            
-            <forms:AnimationView x:Name="animacion" Grid.Row="0"
-                                 Animation="rompecorazon.json"
-                                 HeightRequest="110"
-                                 WidthRequest="80"
-                                 AutoPlay="true"
-                                 RepeatMode="Infinite"
-                                 VerticalOptions="Center"/>
+    <ContentPage.Content>
+        <Grid BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="CenterAndExpand" Spacing="20" HorizontalOptions="CenterAndExpand">
+                <forms:AnimationView x:Name="animacion"
+                                     Animation="LibrosPresentacion.json"
+                                     HeightRequest="200"
+                                     WidthRequest="200"
+                                     AutoPlay="true"
+                                     RepeatMode="Infinite"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Center"/>
+                                                                        
+                <Label Text="Bienvenido a la librería Grupo 1"
+                       TextColor="#333333"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       FontSize="30"
+                       FontAttributes="Bold"/>
 
-            <StackLayout VerticalOptions="CenterAndExpand"
-                         Spacing="60">
-                <Label Text="Clínica la rompe hoyo"
-                       TextColor="white"
-                       HorizontalOptions="Center"
-                       FontSize="27"/>
-                <Image Source="oym.png"
-                       HeightRequest="140" 
-                       BackgroundColor="cyan"/>
+                       
                 <Label Text="Elaborado por: Grupo 1 - Remy Acosta y José Reyes"
-                       TextColor="white"
+                       TextColor="Gray"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
                        HorizontalOptions="Center"
-                       FontSize="20"
-                       HorizontalTextAlignment="Center" />
-            </StackLayout>
-            <Grid VerticalOptions="EndAndExpand"
-                  Margin="20">
-                <Button Text="Empezar"
-                        TextColor="white"
-                        BackgroundColor="lightblue"
-                        TextTransform="None"
-                        FontAttributes="Bold"
-                        CornerRadius="10"
-                        Command="{Binding Navegarmenuprincipalcommand}"
-                        />
-                <Image Source="manoderecha.png"
+                       FontSize="12"/>
+
+                <Grid VerticalOptions="EndAndExpand"
+                      Margin="20">
+                    <Button Text="Empezar"
+                            TextColor="#D3D3D3"
+                            BackgroundColor="#2b3280"
+                            TextTransform="None"
+                            FontAttributes="Bold"
+                            CornerRadius="10"
+                            Command="{Binding Navegarmenuprincipalcommand}"/>       
+                <Image Source="fastfoward.png"
                        HeightRequest="30"
                        HorizontalOptions="End"
                        Margin="0,0,18,0" />
-
-            </Grid>
-
-        </StackLayout>
-    </Grid>
-
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
