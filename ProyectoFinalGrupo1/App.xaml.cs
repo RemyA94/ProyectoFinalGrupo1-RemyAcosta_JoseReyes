@@ -12,7 +12,11 @@ namespace ProyectoFinalGrupo1
             InitializeComponent();
 
             //MainPage = new Empezar();
-            MainPage = new NavigationPage(new Empezar());
+            MainPage = new NavigationPage(new Empezar())
+            {
+               BarBackgroundColor = Color.White,
+               BarTextColor = Color.Black
+            };
         }
 
         protected override void OnStart()
