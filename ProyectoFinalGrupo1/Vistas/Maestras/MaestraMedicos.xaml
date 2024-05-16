@@ -10,7 +10,7 @@
                 </Grid.RowDefinitions>
                 <Grid Margin="10,20,9,5" 
                     RowDefinitions="70,*">
-                    <Label Text="Maestra de Medicos" FontSize="20" FontAttributes="Bold"
+                    <Label Text="Editando datos de libro" FontSize="20" FontAttributes="Bold"
                        VerticalOptions="Center" 
                        HorizontalOptions="Center"
                        TextColor="Black"
@@ -22,8 +22,8 @@
                     <ImageButton Source="buscar30x30.png" HeightRequest="30" HorizontalOptions="End" IsVisible="false"
                              Margin="15,35,10,10" BackgroundColor="Transparent" Command="{Binding BuscarAlmacenesCommand}"/>
 
-                    <Frame Grid.Row="1" Padding="0" Margin="0,-55,0,-50" 
-                        BackgroundColor="LightBlue">
+                    <Frame Grid.Row="1" Padding="0" Margin="10,-50,10,0" 
+                        BackgroundColor="Gray" CornerRadius="10">
                         <StackLayout Margin="10">
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Identificacion libro:" TextColor="Black"
@@ -63,72 +63,53 @@
                                       IsChecked="{Binding ChkEstadoValidar}"/>
                             </StackLayout>
 
-
-                            <StackLayout Orientation="Horizontal">
-                                <ImageButton Source="modificar.png" HeightRequest="55" WidthRequest="50" Margin="300,0,0,0"
-                                         BackgroundColor="Transparent" 
-                                         IsEnabled="{Binding IsEnebledModificar}"
-                                         Command="{Binding ModificarCommand}"/>
-
-                                <ImageButton Source="borrar.png" HeightRequest="55" WidthRequest="50" Margin="-110,0,0,0"
-                                         BackgroundColor="Transparent" HorizontalOptions="End" 
-                                         IsEnabled="{Binding IsEnebledBorrar}"
-                                         Command="{Binding BorrarCommand}"/>
-
-                                <Image Source="almacen" HeightRequest="0" WidthRequest="50" Margin="-300,0,0,0"/>
-                            </StackLayout>
                         </StackLayout>
                     </Frame>
-                    <StackLayout Grid.Row="2" HorizontalOptions="Fill" WidthRequest="275" Orientation="Vertical" Margin="10">
-                        <Grid Margin="30" Padding="0,5,0,0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="0"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
 
-                            <StackLayout Grid.Row="1" HorizontalOptions="Center" WidthRequest="275" Orientation="Vertical" Margin="10">
-                                <Button Text="Crear" TextColor="White" FontSize="16"
-                                    BackgroundColor="DarkGreen" 
-                                    BorderColor="Gray" BorderWidth="1" 
-                                    CornerRadius="50" HeightRequest="55"
-                                    IsEnabled="{Binding IsEnebledCrear}"
-                                    Command="{Binding CrearCommand}"/>
-                            </StackLayout>
+                    <Frame Grid.Row="3"
+                          CornerRadius="10"
+                          Margin="10,-50,10,0"
+                          BackgroundColor="#2b3280"
+                     >
+                            <StackLayout Orientation="Horizontal"
+                              HorizontalOptions="Start"
+                              Margin="20,0,5,10"
+                             >
+                                <Grid >
+                                <Button Grid.Column="0" 
+                                 Text="Iniciar"
+                                 HorizontalOptions="CenterAndExpand"
+                                 CornerRadius="15"
+                                 BackgroundColor="Aquamarine"
+                                  FontSize="13"
+                                 FontAttributes="Bold"
+                                 VerticalOptions="Center"
+                                IsEnabled="{Binding IsEnebledCrear}"
+                                Command="{Binding CrearCommand}"/>
 
-                            <StackLayout Grid.Row="2" HorizontalOptions="Center" WidthRequest="275" Orientation="Vertical" Margin="10">
-                                <Button Text="Guardar Cambios" TextColor="White" FontSize="16"
-                                    BackgroundColor="RoyalBlue" x:Name="btnguardar"
-                                    BorderColor="Gray" BorderWidth="1" 
-                                    CornerRadius="50" HeightRequest="55"
-                                    IsEnabled="{Binding IsEnebledGuardar}"
-                                    Command="{Binding GuardarCambiosCommand}"/>
-                            </StackLayout>
+                                <Button Grid.Row="0" Grid.Column="1" Text="Guardar"
+                                 HorizontalOptions="Start"
+                                 CornerRadius="15"
+                                 BackgroundColor="Aquamarine"
+                                 FontSize="13"
+                                 FontAttributes="Bold"
+                                 VerticalOptions="Center"
+                                       Command="{Binding GuardarCambiosCommand}"/>
 
-                            <StackLayout Grid.Row="3" HorizontalOptions="Center" WidthRequest="275" Orientation="Vertical" Margin="10">
-                                <Button Text="Cancelar" TextColor="White" FontSize="16"
-                                    BackgroundColor="DarkRed" x:Name="btncancelar"
-                                    BorderColor="Gray" BorderWidth="1" 
-                                    CornerRadius="50" HeightRequest="55"
-                                    IsEnabled="{Binding IsEnebledCancelar}"
-                                    Command="{Binding CancelarCommand}"/>
-                            </StackLayout>
-                        </Grid>
-                    </StackLayout>
-                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center"
-                             AbsoluteLayout.LayoutBounds ="0,0,1,1" 
-                             AbsoluteLayout.LayoutFlags="All"
-                             BackgroundColor="Transparent" Padding="10.0"  
-                             IsVisible="{Binding IsVisible}">
-                        <ActivityIndicator 
-                             IsRunning="{Binding CorrerBarra}"
-                             IsVisible="{Binding IsVisible}"
-                             Color="RoyalBlue"
-                             Scale="0.8"/>
-                    </StackLayout>
+
+                                <Button Grid.Row="0" Grid.Column="2" Text="Eliminar"
+                                 HorizontalOptions="Start"
+                                 FontSize="13"
+                                 CornerRadius="15"
+                                 BackgroundColor="Aquamarine"
+                                 FontAttributes="Bold"
+                                 VerticalOptions="Center"
+                                 Command="{Binding CancelarCommand}"/>       
+                            </Grid>
+                        </StackLayout>      
+                    </Frame>
+
+                 
                 </Grid>
 
 
