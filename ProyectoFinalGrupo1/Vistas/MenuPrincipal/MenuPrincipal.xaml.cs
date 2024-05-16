@@ -1,32 +1,25 @@
 ﻿using ProyectoFinalGrupo1.VistaModelo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ProyectoFinalGrupo1.Vistas.MenuPrincipal
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MenuPrincipal : ContentPage
-    {
-        public MenuPrincipal()
-        {
-            InitializeComponent();
-            BindingContext = new VMmenuPrincipal(Navigation);
-        }
+   [XamlCompilation(XamlCompilationOptions.Compile)]
+   public partial class MenuPrincipal : ContentPage
+   {
+      public static string usuariologueado;
 
-        public static string usuariologueado;
-        public MenuPrincipal(String usuario)
-        {
-            usuariologueado = usuario;
-            InitializeComponent();
-            BindingContext = new VMmenuPrincipal(Navigation, usuario);
-            txtusuariologueado.Text = usuario;
-        }
+      public MenuPrincipal()
+      {
+         InitializeComponent();
+         BindingContext = new VMmenuPrincipal(Navigation);
+      }
 
-    }
+      public MenuPrincipal(string usuario)
+      {
+         InitializeComponent();
+         //usuariologueado = usuario;
+         BindingContext = new VMmenuPrincipal(Navigation, usuario);
+      }
+   }
 }

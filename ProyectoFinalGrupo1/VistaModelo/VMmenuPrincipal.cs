@@ -1,77 +1,59 @@
 ﻿using ProyectoFinalGrupo1.Vistas.MenuPrincipal;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace ProyectoFinalGrupo1.VistaModelo
 {
-    internal class VMmenuPrincipal : BaseViewModel
-    {
-        #region VARIABLES
+   internal class VMmenuPrincipal : BaseViewModel
+   {
+      private string _usuario;
+      public string Usuario
+      {
+         get => _usuario;
+         set
+         {
+            _usuario = value;
+            OnPropertyChanged();
+         }
+      }
 
-        #endregion
+      public INavigation Navigation { get; }
 
-        #region CONSTRUCTOR
+      public VMmenuPrincipal(INavigation navigation)
+      {
+         Navigation = navigation;
+         InitializeCommands();
+      }
 
-        public VMmenuPrincipal()
-        {
-        }
-        public VMmenuPrincipal(INavigation navigation)
-        {
-            Navigation = navigation;
-            Volvercomand = new Command(async () => await Volver());
-            NavegarMantenimientocommand = new Command(async () => await NavegarMenuMantenimiento());
-            NavegarReportescommand = new Command(async () => await NavegarMenureportes());
-            //NavegarCreadoporcommand = new Command(async () => await Navegararticulos());
-        }
+      public VMmenuPrincipal(INavigation navigation, string usuario) : this(navigation)
+      {
+         Usuario = usuario;
+      }
 
-        public VMmenuPrincipal(INavigation navigation, string usu)
-        {
-            Navigation = navigation;
-            Volvercomand = new Command(async () => await Volver());
-            NavegarMantenimientocommand = new Command(async () => await NavegarMenuMantenimiento());
-            //NavegarReportescommand = new Command(async () => await Navegararticulos());
-            //NavegarCreadoporcommand = new Command(async () => await Navegararticulos());
-        }
+      private void InitializeCommands()
+      {
+         VolverCommand = new Command(async () => await Volver());
+         NavegarMantenimientoCommand = new Command(async () => await NavegarMenuMantenimiento());
+         NavegarReportesCommand = new Command(async () => await NavegarMenuReportes());
+      }
 
-        #endregion
+      private async Task Volver()
+      {
+         await Navigation.PopAsync();
+      }
 
-        #region OBJETOS
+      private async Task NavegarMenuMantenimiento()
+      {
+         await Navigation.PushAsync(new MenuMantenimiento());
+      }
 
-        #endregion
+      private async Task NavegarMenuReportes()
+      {
+         await Navigation.PushAsync(new MenuReportes());
+      }
 
-        #region PROCESOS
-
-        private async Task Volver()
-        {
-            //await Navigation.PushAsync(new MenuPrincipal());
-            await Navigation.PopAsync();
-        }
-
-        private async Task NavegarMenuMantenimiento()
-        {
-            //await Navigation.PushAsync(new MenuMantenimiento());
-            await Navigation.PushAsync(new MenuMantenimiento());
-        }
-        private async Task NavegarMenureportes()
-        {
-            //await Navigation.PushAsync(new Clientes());
-            await Navigation.PushAsync(new MenuReportes());
-        }
-
-        #endregion
-
-        #region COMANDOS
-
-        public Command Volvercomand { get; }
-        public Command NavegarMantenimientocommand { get; }
-        public Command NavegarReportescommand { get; }
-        public Command NavegarCreadoporcommand { get; }
-
-        #endregion
-
-    }
-
+      public Command VolverCommand { get; private set; }
+      public Command NavegarMantenimientoCommand { get; private set; }
+      public Command NavegarReportesCommand { get; private set; }
+   }
 }

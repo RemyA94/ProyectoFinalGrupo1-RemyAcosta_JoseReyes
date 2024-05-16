@@ -41,7 +41,7 @@
                            Grid.Column="1"
                            VerticalOptions="Center"/>
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NavegarMantenimientocommand}" />
+                        <TapGestureRecognizer Command="{Binding NavegarMantenimientoCommand}" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Grid.Row="1">
@@ -54,7 +54,7 @@
                            Grid.Column="1"
                            VerticalOptions="Center"/>
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NavegarReportescommand}" />
+                        <TapGestureRecognizer Command="{Binding NavegarReportesCommand}" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Grid.Row="2">
@@ -91,7 +91,7 @@
                    FontAttributes="Bold"
                    HorizontalTextAlignment="Center"
                    Padding="2"
-                   x:Name="txtusuariologueado"/>
+                   Text="{Binding Usuario}"/>
         </Frame>
     </Grid>
 </ContentPage>
