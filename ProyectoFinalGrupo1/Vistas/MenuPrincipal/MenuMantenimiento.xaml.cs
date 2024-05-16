@@ -18,5 +18,11 @@ namespace ProyectoFinalGrupo1.Vistas.MenuPrincipal
             InitializeComponent();
             BindingContext = new VMmantenimiento(Navigation);
         }
-    }
+
+      public MenuMantenimiento(string usuario)
+      {
+         InitializeComponent();
+         BindingContext = new VMmenuPrincipal(Navigation, usuario);
+      }
+   }
 }

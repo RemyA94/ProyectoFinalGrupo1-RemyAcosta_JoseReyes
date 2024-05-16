@@ -3,85 +3,70 @@ using ProyectoFinalGrupo1.Conexion;
 using ProyectoFinalGrupo1.Modelo;
 using ProyectoFinalGrupo1.Vistas.MenuPrincipal;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace ProyectoFinalGrupo1.VistaModelo
 {
-    public class VMlogin : BaseViewModel
-    {
-        #region Atributos
-        private string email;
-        private string clave;
-        #endregion
+   public class VMlogin : BaseViewModel
+   {
+      private string email;
+      private string clave;
 
-        #region Propiedades
-        public string txtemail
-        {
-            get { return email; }
-            set { SetValue(ref email, value); }
-        }
-        public string txtclave
-        {
-            get { return clave; }
-            set { SetValue(ref clave, value); }
-        }
-        #endregion
+      public string txtemail
+      {
+         get { return email; }
+         set { SetValue(ref email, value); }
+      }
 
-        #region Command
-        public Command LogearUsuarioCommand { get; }
-        #endregion
+      public string txtclave
+      {
+         get { return clave; }
+         set { SetValue(ref clave, value); }
+      }
 
-        #region Metodo
-        public async Task LoginUsuario()
-        {
-            if (string.IsNullOrEmpty(email))
-            {
-                await DisplayAlert("Alerta", "Escriba su email", "Ok");
-                return;
-            }
+      public Command LogearUsuarioCommand { get; }
 
-            if (string.IsNullOrEmpty(clave))
-            {
-                await DisplayAlert("Alerta", "Escriba su contraseña", "Ok");
-                return;
-            }
+      public VMlogin(INavigation navigation)
+      {
+         Navigation = navigation;
+         LogearUsuarioCommand = new Command(async () => await LoginUsuario());
+      }
 
+      private async Task LoginUsuario()
+      {
+         if (string.IsNullOrEmpty(email))
+         {
+            await DisplayAlert("Alerta", "Escriba su email", "Ok");
+            return;
+         }
 
-            var objusuario = new MUsuarios()
-            {
-                Email = email.Trim(),
-                Clave = clave
-            };
-            try
-            {
+         if (string.IsNullOrEmpty(clave))
+         {
+            await DisplayAlert("Alerta", "Escriba su contraseña", "Ok");
+            return;
+         }
 
-                var autenticacion = new FirebaseAuthProvider(new FirebaseConfig(FireBaseDBConn.WepApyAuthentication));
-                var authuser = await autenticacion.SignInWithEmailAndPasswordAsync(objusuario.Email.ToString(), objusuario.Clave.ToString());
-                string obternertoken = authuser.FirebaseToken;
+         var objusuario = new MUsuarios()
+         {
+            Email = email.Trim(),
+            Clave = clave
+         };
 
-                var Propiedades_NavigationPage = new NavigationPage(new MenuPrincipal(objusuario.Email.ToString()));
+         try
+         {
+            var autenticacion = new FirebaseAuthProvider(new FirebaseConfig(FireBaseDBConn.WepApyAuthentication));
+            var authuser = await autenticacion.SignInWithEmailAndPasswordAsync(objusuario.Email, objusuario.Clave);
+            string obternertoken = authuser.FirebaseToken;
 
-                //var Propiedades_NavigationPage = new NavigationPage(new MenuPrincipal());
-
-                Propiedades_NavigationPage.BarBackgroundColor = Color.RoyalBlue;
-                App.Current.MainPage = Propiedades_NavigationPage;
-            }
-            catch (Exception)
-            {
-                await App.Current.MainPage.DisplayAlert("Error", "Usuario o clave incorrecto.", "Intentar de nuevo");
-            }
-        }
-        #endregion
-
-        #region Constructor
-        public VMlogin(INavigation navegar)
-        {
-            Navigation = navegar;
-            LogearUsuarioCommand = new Command(async () => await LoginUsuario());
-        }
-        #endregion
-    }
+            var Propiedades_NavigationPage = new NavigationPage(new MenuPrincipal(objusuario.Email));
+            Propiedades_NavigationPage.BarBackgroundColor = Color.RoyalBlue;
+            App.Current.MainPage = Propiedades_NavigationPage;
+         }
+         catch (Exception)
+         {
+            await App.Current.MainPage.DisplayAlert("Error", "Usuario o clave incorrecto.", "Intentar de nuevo");
+         }
+      }
+   }
 }

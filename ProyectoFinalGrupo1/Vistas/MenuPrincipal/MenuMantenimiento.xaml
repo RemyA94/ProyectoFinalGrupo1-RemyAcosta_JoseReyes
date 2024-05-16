@@ -1,112 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="ProyectoFinalGrupo1.Vistas.MenuPrincipal.MenuMantenimiento"
-             Title="MANTENIMIENTO LIBRERÍA">
-    <Grid
-        BackgroundColor="blue"
-        RowDefinitions="140, *,70"
-        Padding="25"
-        RowSpacing="25">
-        <Frame
-            Grid.Row="0"
-            BackgroundColor="Transparent"
-            BorderColor="#FFFFFF">
-            <StackLayout>
-                <Label 
-                    Text="Libreria Grupo 1"
-                    TextColor="LightGray"
-                    FontSize="27"
-                    HorizontalOptions="CenterAndExpand" />
+             NavigationPage.HasNavigationBar="False">
 
-                <Grid>
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="White" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-                    <StackLayout Grid.Row="0" Grid.Column="0">
-                        <forms:AnimationView x:Name="animacion" Grid.Row="0"
-                                 Animation="LibrosPresentacion.json"
-                                  HeightRequest="60"
-                                     HorizontalOptions="End"
-                                WidthRequest="80"
-                                 AutoPlay="true"
-                                 RepeatMode="Infinite"
-                                 VerticalOptions="Center"/>
-                    </StackLayout>
+                <!-- Header -->
+                <StackLayout Grid.Row="0" Margin="20" Padding="20" BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center" Spacing="15">
+                    <Image Source="Mantenimiento.png"
+                           HeightRequest="200"
+                           WidthRequest="200"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
 
-
-                    <StackLayout Grid.Row="0" Grid.Column="2">
-                        <Label 
-                    Text="CRC"
-                    TextColor="LightGray"
-                    FontSize="25"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Start" />
-                    </StackLayout >
-
-                </Grid>
-
-            </StackLayout>
-        </Frame>
-        <Frame
-            Grid.Row="1"
-            BackgroundColor="Transparent"
-            BorderColor="White">
-            <Grid
-                RowDefinitions="*,*,*,*,*">
-                <StackLayout 
-                    Orientation="Horizontal"
-                    Grid.Row="0">
-                    <Image 
-                        Source="user"
-                        Grid.Column="0"
-                        WidthRequest="40"/>
-                    <Label
-                        Text="Listado socios"
-                        TextColor="White"
-                        FontSize="15"
-                        Grid.Column="1"
-                        VerticalOptions="Center"/>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NavegarEspecialidadescommand}" />
-                    </StackLayout.GestureRecognizers>
+                    <Label Text="Mantenimiento Librería"
+                           TextColor="#333333"
+                           FontSize="25"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalTextAlignment="Center"/>
                 </StackLayout>
-               
-                
-                
-                <StackLayout 
-                 Orientation="Horizontal"
-                 Grid.Row="1">
-                 <Image 
-                     Source="reportesicon"
-                     Grid.Column="0"
-                     WidthRequest="40"/>
-                 <Label
-                     Text="Médicos"
-                     TextColor="white"
-                     FontSize="15"
-                     Grid.Column="1"
-                     VerticalOptions="Center"/>
-                 <StackLayout.GestureRecognizers>
-                     <TapGestureRecognizer Command="{Binding NavegarMedicoscommand}" />
-                 </StackLayout.GestureRecognizers>
-             </StackLayout>
-                
 
-                
+                <!-- Main Content -->
+                <Frame Grid.Row="1" Margin="20" Padding="20" BackgroundColor="White" BorderColor="#2b3280" HasShadow="True" CornerRadius="10">
+                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="15">
+                        <StackLayout Orientation="Horizontal" Padding="10,0" HorizontalOptions="Start">
+                            <Image Source="user"
+                                   WidthRequest="40"
+                                   VerticalOptions="Center"/>
+                            <Label Text="Listado de socios"
+                                   TextColor="#333333"
+                                   FontSize="15"
+                                   VerticalOptions="Center"
+                                   Margin="10,0">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavegarEspecialidadesCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Padding="10,0" HorizontalOptions="Start">
+                            <Image Source="reportesicon"
+                                   WidthRequest="40"
+                                   VerticalOptions="Center"/>
+                            <Label Text="Médicos"
+                                   TextColor="#333333"
+                                   FontSize="15"
+                                   VerticalOptions="Center"
+                                   Margin="10,0">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavegarMedicosCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <!-- Puedes agregar más StackLayouts aquí para otros menús -->
+                    </StackLayout>
+                </Frame>
+
+                <!-- Footer -->
+                <!--<Frame Grid.Row="2" Margin="20" Padding="20" BackgroundColor="White" BorderColor="#2b3280" HasShadow="True" CornerRadius="10">
+                    <Label TextColor="#333333"
+                           FontSize="15"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalTextAlignment="Center" 
+                           Text="{Binding Usuario}" />
+                </Frame>-->
             </Grid>
-        </Frame>
-
-        <Frame
-            Grid.Row="2"
-            BackgroundColor="Transparent"
-            BorderColor="white">
-            <Label  TextColor="yellow"
-                    Text="Elaborado por: Secc707"
-                    FontSize="15"
-                    HorizontalOptions="CenterAndExpand"
-                    FontAttributes="Bold" 
-                    HorizontalTextAlignment="Center"
-                   x:Name="txtusuariologueado"/>
-        </Frame>
-    </Grid>
+        </AbsoluteLayout>
+    </ContentPage.Content>
 </ContentPage>
