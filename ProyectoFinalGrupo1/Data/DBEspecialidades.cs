@@ -22,28 +22,27 @@ namespace ProyectoFinalGrupo1.Data
             try
             {
                 return (await FireBaseDBConn.FireBase_Connect
-                    .Child("Especialidad")
-                    .OrderByKey()
+                    .Child("socios")
                     .OnceAsync<Mespecialidad>())
                     .Select(datos => new Mespecialidad
                     {
-                        Id_EspecialidadFirebase = datos.Key,
-                        Id_Especialidad = datos.Object.Id_Especialidad,
-                        Especialidad = datos.Object.Especialidad,
-                        Estado = datos.Object.Estado,
-                        FechaRegistro = datos.Object.FechaRegistro
+                        idsocio = datos.Object.idsocio,
+                        nombre = datos.Object.nombre,
+                        status = datos.Object.status,
+                        fechaRegistro = datos.Object.fechaRegistro
                     }).ToList();
             }
             catch (Exception ex)
             {
                 string mensaje = ex.Message;
-                await App.Current.MainPage.DisplayAlert("Error", "Compruebe la conexión a intenet he intentelo nuevamente.", "Aceptar");
+                // await App.Current.MainPage.DisplayAlert("Error", "Compruebe la conexión a intenet he intentelo nuevamente.", "Aceptar");
+                await App.Current.MainPage.DisplayAlert("Error", mensaje, "Aceptar");
                 return null;
             }
         }
 
         /// <summary>
-        /// Insertar Especialidades
+        /// Insertar socios
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>Retorna True si el registro fue insertado correctamente.</returns>
@@ -52,13 +51,13 @@ namespace ProyectoFinalGrupo1.Data
             try
             {
                 await FireBaseDBConn.FireBase_Connect
-                .Child("Especialidad")
+                .Child("socios")
                 .PostAsync(new Mespecialidad()
                 {
-                    Id_Especialidad = obj.Id_Especialidad,
-                    Especialidad = obj.Especialidad,
-                    Estado = obj.Estado,
-                    FechaRegistro = obj.FechaRegistro
+                    fechaRegistro = obj.fechaRegistro,
+                    status = obj.status,
+                    nombre = obj.nombre,
+                    idsocio = obj.idsocio
                 });
                 return true;
             }
@@ -71,7 +70,7 @@ namespace ProyectoFinalGrupo1.Data
         }
 
         /// <summary>
-        /// Modificar Especialidades
+        /// Modificar socios
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>Retorna True si el registro fue modificado correctamente.</returns>
@@ -81,17 +80,17 @@ namespace ProyectoFinalGrupo1.Data
             try
             {
                 var modprov = (await FireBaseDBConn.FireBase_Connect
-                    .Child("Especialidad")
-                    .OnceAsync<Mespecialidad>()).Where(p => p.Object.Id_Especialidad == obj.Id_Especialidad).FirstOrDefault();
+                    .Child("socios")
+                    .OnceAsync<Mespecialidad>()).Where(p => p.Object.idsocio == obj.idsocio).FirstOrDefault();
                 await FireBaseDBConn.FireBase_Connect
-                    .Child("Especialidad")
+                    .Child("socios")
                     .Child(modprov.Key)
                     .PutAsync(new Mespecialidad()
                     {
-                        Id_Especialidad = obj.Id_Especialidad,
-                        Especialidad = obj.Especialidad,
-                        Estado = obj.Estado,
-                        FechaRegistro = obj.FechaRegistro
+                        idsocio = obj.idsocio,
+                        nombre = obj.nombre,
+                        status = obj.status,
+                        fechaRegistro = obj.fechaRegistro
                     });
                 return true;
             }
@@ -104,7 +103,7 @@ namespace ProyectoFinalGrupo1.Data
         }
 
         /// <summary>
-        /// Borrar Especialidad
+        /// Borrar socios
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>Retorna True si el registro fue borrado correctamente.</returns>
@@ -115,7 +114,7 @@ namespace ProyectoFinalGrupo1.Data
             {
                 var borrar = (await FireBaseDBConn.FireBase_Connect
                     .Child("Especialidad")
-                    .OnceAsync<Mespecialidad>()).Where(p => p.Object.Id_Especialidad == obj.Id_Especialidad).FirstOrDefault();
+                    .OnceAsync<Mespecialidad>()).Where(p => p.Object.idsocio == obj.idsocio).FirstOrDefault();
                 await FireBaseDBConn.FireBase_Connect.Child("Especialidad").Child(borrar.Key).DeleteAsync();
                 return true;
             }

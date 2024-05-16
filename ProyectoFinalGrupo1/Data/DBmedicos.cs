@@ -32,9 +32,13 @@ namespace ProyectoFinalGrupo1.Data
                         Apellido = datos.Object.Apellido,
 
                         Especialidad = new Mespecialidad
+                       // {
+                       //     Id_Especialidad = datos.Object.Especialidad.Id_Especialidad,
+                        //    Especialidad = datos.Object.Especialidad.Especialidad,
+                        //   },
                         {
-                            Id_Especialidad = datos.Object.Especialidad.Id_Especialidad,
-                            Especialidad = datos.Object.Especialidad.Especialidad,
+                            idsocio = "d", //datos.Object.Especialidad.Id_Especialidad,
+                            nombre = "d" //Object.Especialidad.Especialidad,
                         },
                         Genero = datos.Object.Genero,
                         Telefono = datos.Object.Telefono,
@@ -70,9 +74,14 @@ namespace ProyectoFinalGrupo1.Data
                     Apellido = objmedico.Apellido,
 
                     Especialidad = new Mespecialidad
+                    // {
+                    //   Id_Especialidad = objmedico.Especialidad.Id_Especialidad,
+                    //     Especialidad = objmedico.Especialidad.Especialidad
+                    //   },
+
                     {
-                        Id_Especialidad = objmedico.Especialidad.Id_Especialidad,
-                        Especialidad = objmedico.Especialidad.Especialidad
+                        idsocio = "idsocios", //objmedico.Especialidad.Id_Especialidad,
+                        nombre =  "idsocios" //objmedico.Especialidad.Especialidad
                     },
                     Genero = objmedico.Genero,
                     Telefono = objmedico.Telefono,
@@ -112,9 +121,14 @@ namespace ProyectoFinalGrupo1.Data
                         Apellido = objmedico.Apellido,
 
                         Especialidad = new Mespecialidad
+                        //{
+                        //     Id_Especialidad = objmedico.Especialidad.Id_Especialidad,
+                        //       Especialidad = objmedico.Especialidad.Especialidad
+                        //   },
+
                         {
-                            Id_Especialidad = objmedico.Especialidad.Id_Especialidad,
-                            Especialidad = objmedico.Especialidad.Especialidad
+                            nombre = "s", //objmedico.Especialidad.Id_Especialidad,
+                            idsocio = "s", // objmedico.Especialidad.Especialidad
                         },
                         Genero = objmedico.Genero,
                         Telefono = objmedico.Telefono,

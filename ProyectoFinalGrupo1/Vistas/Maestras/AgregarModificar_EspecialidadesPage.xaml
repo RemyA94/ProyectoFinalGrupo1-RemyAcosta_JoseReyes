@@ -28,7 +28,7 @@
                        HasShadow="True" 
                        CornerRadius="15" 
                        BackgroundColor="LightGray">
-                    <SearchBar Placeholder="Buscar por especialidad.." 
+                    <SearchBar Placeholder="Buscar socio por nombre.." 
                                Keyboard="Chat" 
                                TextChanged="SearchBar_TextChanged"  
                                MaxLength="30" 
@@ -97,17 +97,17 @@
                                         <Label
                             Grid.Column="0"
                                             TextColor="black"
-                            Text= "{Binding Id_Especialidad}"
+                            Text= "{Binding fechaRegistro}"
                                             FontSize="11"/>
                                         <Label
                             Grid.Column="1"
                                             TextColor="black"
-                            Text="{Binding Especialidad}"
+                            Text="{Binding nombre}"
                                             FontSize="11"></Label>
                                         <Label
                             Grid.Column="2"
                                             TextColor="black"
-                            Text="{Binding Estado}"
+                            Text="{Binding status}"
                                             
                                             FontSize="11"></Label>
                                     </Grid>

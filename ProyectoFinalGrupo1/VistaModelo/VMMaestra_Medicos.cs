@@ -66,8 +66,8 @@ namespace ProyectoFinalGrupo1.VistaModelo
             set
             {
                 SetProperty(ref selectEspecialidad, value);
-                txtidespecialidad = selectEspecialidad.Id_Especialidad;
-                txtnombreespecialidad = selectEspecialidad.Especialidad;
+                txtidespecialidad = selectEspecialidad.idsocio;
+                txtnombreespecialidad = selectEspecialidad.idsocio;
             }
         }
 
@@ -222,6 +222,8 @@ namespace ProyectoFinalGrupo1.VistaModelo
         DBmedicos dbmedicos = new DBmedicos();
         DBEspecialidades dbespecialidades = new DBEspecialidades();
         public ObservableCollection<Mmedicos> ColeccionMed = new ObservableCollection<Mmedicos>();
+        private string idsocio;
+        private string nombre;
 
         private async Task Mostrarespecialidades()
         {
@@ -332,8 +334,8 @@ namespace ProyectoFinalGrupo1.VistaModelo
 
                     Especialidad = new Mespecialidad
                     {
-                        Id_Especialidad = idespecialidad,
-                        Especialidad = especialidad
+                        idsocio = idsocio,
+                        nombre = nombre
                     },
 
                     Estado = estado,
@@ -406,8 +408,8 @@ namespace ProyectoFinalGrupo1.VistaModelo
                     txttelefono = datosencontrados.Telefono;
                     txtemail = datosencontrados.Email;
                     txtestado = datosencontrados.Estado;
-                    txtidespecialidad = datosencontrados.Especialidad.Id_Especialidad;
-                    txtnombreespecialidad = datosencontrados.Especialidad.Especialidad;
+                    txtidespecialidad = datosencontrados.Especialidad.idsocio;
+                    txtnombreespecialidad = datosencontrados.Especialidad.idsocio;
                     
                     txtfecharegistro = datosencontrados.FechaRegistro;
                     ColorFondoId = System.Drawing.Color.Khaki;
@@ -592,8 +594,8 @@ namespace ProyectoFinalGrupo1.VistaModelo
             txttelefono = objmedicos.Telefono;
             txtemail = objmedicos.Email;
             txtfecharegistro = objmedicos.FechaRegistro;
-            txtidespecialidad = objmedicos.Especialidad.Id_Especialidad;
-            txtnombreespecialidad = objmedicos.Especialidad.Especialidad;
+            txtidespecialidad = objmedicos.Especialidad.idsocio;
+            txtnombreespecialidad = objmedicos.Especialidad.idsocio;
             if (objmedicos.Estado == "Inactivo")
                 ChkEstadoValidar = true;
             else

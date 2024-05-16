@@ -35,7 +35,7 @@ namespace ProyectoFinalGrupo1.Vistas.Maestras
             }
             else
             {
-                ListViewEspecialidades.ItemsSource = _container.especialidadcollection.Where(i => i.Especialidad.ToUpper().Contains(e.NewTextValue.ToUpper()));
+                ListViewEspecialidades.ItemsSource = _container.especialidadcollection.Where(i => i.idsocio.ToUpper().Contains(e.NewTextValue.ToUpper()));
             }
             ListViewEspecialidades.EndRefresh();
         }

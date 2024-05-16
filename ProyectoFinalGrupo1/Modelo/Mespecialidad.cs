@@ -6,10 +6,9 @@ namespace ProyectoFinalGrupo1.Modelo
 {
     public class Mespecialidad
     {
-        public string Id_EspecialidadFirebase { get; set; }
-        public string Id_Especialidad { get; set; }
-        public string Especialidad { get; set; }
-        public string Estado { get; set; }
-        public string FechaRegistro { get; set; }
+        public string idsocio { get; set; }
+        public string nombre { get; set; }
+        public string status { get; set; }
+        public string fechaRegistro { get; set; }
     }
 }

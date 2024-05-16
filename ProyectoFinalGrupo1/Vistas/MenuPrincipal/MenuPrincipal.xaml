@@ -35,7 +35,7 @@
                     <Image Source="stackbooks"
                            Grid.Column="0"
                            WidthRequest="40"/>
-                    <Label Text="Mantenimientos de libros"
+                    <Label Text="Mantenimientos de socios"
                            TextColor="#6C6A61"
                            FontSize="15"
                            Grid.Column="1"

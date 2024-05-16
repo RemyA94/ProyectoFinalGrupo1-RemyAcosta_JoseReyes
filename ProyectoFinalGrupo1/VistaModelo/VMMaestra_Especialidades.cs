@@ -230,15 +230,15 @@ namespace ProyectoFinalGrupo1.VistaModelo
                 //Instanciamos el modelo para obtener los datos introducidos por el usuario
                 var obj = new Mespecialidad
                 {
-                    Id_Especialidad = id_especialidad,
-                    Especialidad = especialidad,
-                    Estado = estado,
-                    FechaRegistro = fecheregistro
+                    idsocio = id_especialidad,
+                    nombre = especialidad,
+                    status = estado,
+                    fechaRegistro = fecheregistro
                 };
 
                 if (ColorFondoId == System.Drawing.Color.LightGreen)
                 {
-                    if (obj.Estado == "Inactivo")
+                    if (obj.status == "Inactivo")
                     {
                         await App.Current.MainPage.DisplayAlert("Advertencia", "No puede insertar una especialidad como inactivo.", "Aceptar");
                     }
@@ -306,7 +306,7 @@ namespace ProyectoFinalGrupo1.VistaModelo
                 List<Mmedicos> ListEspObtenida = await dbmedico.ListarMedicos();
                 var objespecialidad = new Mespecialidad()
                 {
-                    Id_Especialidad = id_especialidad
+                    idsocio = id_especialidad
                 };
 
                 if (string.IsNullOrEmpty(txtidespecialidad))
@@ -318,7 +318,7 @@ namespace ProyectoFinalGrupo1.VistaModelo
                     string respuesta = await App.Current.MainPage.DisplayActionSheet("¿Seguro que desea borrar esta especialidad?", "Cancelar", null, "Si", "No");
                     if (respuesta == "Si")
                     {
-                        bool relacion = ListEspObtenida.Select(r => r.Especialidad.Id_Especialidad == objespecialidad.Id_Especialidad).FirstOrDefault();
+                        bool relacion = ListEspObtenida.Select(r => r.Especialidad.idsocio == objespecialidad.idsocio).FirstOrDefault();
                         if (relacion == true)
                         {
                             await App.Current.MainPage.DisplayAlert("Advertecia", "No se puede borrar una especialidad que esté relacionada a un doctor.", "Aceptar");
@@ -454,11 +454,11 @@ namespace ProyectoFinalGrupo1.VistaModelo
         public VMMaestra_Especialidades(Mespecialidad obj)
         {
             //Cargar datos del id seleccionado
-            txtidespecialidad = obj.Id_Especialidad;
-            txtespecialidad = obj.Especialidad;
-            txtestado = obj.Estado;
-            txtfecharegistro = obj.FechaRegistro;
-            if (obj.Estado == "Inactivo")
+            txtidespecialidad = obj.idsocio;
+            txtespecialidad = obj.idsocio;
+            txtestado = obj.status;
+            txtfecharegistro = obj.fechaRegistro;
+            if (obj.status == "Inactivo")
                 ChkEstadoValidar = true;
             else
                 ChkEstadoValidar = false;
@@ -485,9 +485,9 @@ namespace ProyectoFinalGrupo1.VistaModelo
     , Mespecialidad esp = null)
         {
 
-            txtidespecialidad = esp.Id_Especialidad;
-            txtespecialidad = esp.Especialidad;
-            txtestado = esp.Estado;
+            txtidespecialidad = esp.idsocio;
+            txtespecialidad = esp.idsocio;
+            txtestado = esp.status;
         }
 
         public Command NavegarEspecialidadCommand { get; }

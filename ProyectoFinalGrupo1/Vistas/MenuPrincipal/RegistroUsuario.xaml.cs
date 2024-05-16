@@ -58,11 +58,22 @@ namespace ProyectoFinalGrupo1.Vistas.MenuPrincipal
 
             #region Logica para crear el usuario
 
-            await Task.Delay(5);
-            var Autentication = new FirebaseAuthProvider(new FirebaseConfig(FireBaseDBConn.WepApyAuthentication));
-            await Autentication.CreateUserWithEmailAndPasswordAsync(email, clave);
-            await App.Current.MainPage.DisplayAlert("Informacion", "Usuario registrado exitosamente.", "Aceptar");
-            await App.Current.MainPage.Navigation.PushModalAsync(new Login());
+            try
+            {
+
+                await Task.Delay(5);
+                var Autentication = new FirebaseAuthProvider(new FirebaseConfig(FireBaseDBConn.WepApyAuthentication));
+                await Autentication.CreateUserWithEmailAndPasswordAsync(email, clave);
+                await App.Current.MainPage.DisplayAlert("Informacion", "Usuario registrado exitosamente.", "Aceptar");
+                await App.Current.MainPage.Navigation.PushModalAsync(new Login());
+
+            }
+            catch (Exception)
+            {
+                await App.Current.MainPage.DisplayAlert("Error", "Ha ocurrido un error al registrar el usuario.", "Intentar de nuevo");
+            }
+
+           
 
             #endregion
 

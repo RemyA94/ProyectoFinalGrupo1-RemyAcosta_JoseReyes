@@ -8,8 +8,8 @@ namespace ProyectoFinalGrupo1.Conexion
 {
     public class FireBaseDBConn
     {
-        public static FirebaseClient FireBase_Connect = new FirebaseClient("https://login707-1be7a-default-rtdb.firebaseio.com/");
-        public const string WepApyAuthentication = "AIzaSyCg0aITetykHp-WPEPX5W4TKt2BClWUgT8";
+        public static FirebaseClient FireBase_Connect = new FirebaseClient("https://grupo-1-v1-default-rtdb.firebaseio.com/");
+        public const string WepApyAuthentication = "AIzaSyDv1FNNKN3dY4oEHTefIlnMAOBSLmpntkw";
     }
 
 }
