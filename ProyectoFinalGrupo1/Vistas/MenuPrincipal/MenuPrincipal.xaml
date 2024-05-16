@@ -37,7 +37,7 @@
                             <Image Source="stackbooks"
                                    WidthRequest="40"
                                    VerticalOptions="Center"/>
-                            <Label Text="Mantenimiento de socios"
+                            <Label Text="Mantenimiento"
                                    TextColor="#333333"
                                    FontSize="15"
                                    VerticalOptions="Center"
@@ -108,7 +108,7 @@
                                     </Image.Clip>
                                 </Image>
                                 <Label Text="José Reyes" HorizontalOptions="Center" FontSize="15" FontAttributes="Bold"/>
-                                <Label Text="Matrícula: 14-sisn-6-067" HorizontalOptions="Center" FontSize="12"/>
+                                <Label Text="15-misn-6-082" HorizontalOptions="Center" FontSize="12"/>
                             </StackLayout>
                         </Grid>
                         <Button HorizontalOptions="FillAndExpand"
