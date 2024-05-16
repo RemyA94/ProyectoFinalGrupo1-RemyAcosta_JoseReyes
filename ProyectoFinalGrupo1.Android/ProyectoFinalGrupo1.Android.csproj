@@ -66,6 +66,8 @@
     <AndroidAsset Include="Assets\abusador.json" />
     <AndroidAsset Include="Assets\login.json" />
     <AndroidAsset Include="Assets\rompecorazon.json" />
+    <AndroidAsset Include="Assets\LibrosPresentacion.json" />
+    <AndroidAsset Include="Assets\sonar.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -128,6 +130,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\modificar.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\fastfoward.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
