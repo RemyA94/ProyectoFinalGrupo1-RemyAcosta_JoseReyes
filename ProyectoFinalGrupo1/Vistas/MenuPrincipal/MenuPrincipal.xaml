@@ -4,89 +4,68 @@
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="ProyectoFinalGrupo1.Vistas.MenuPrincipal.MenuPrincipal"
              Title="MENU PRINCIPAL"
-             NavigationPage.HasNavigationBar="True" >
+             NavigationPage.HasNavigationBar="True">
 
-    <Grid
-        BackgroundColor="#fefefe"
-        RowDefinitions="140, *,70"
-        Padding="25"
-        RowSpacing="25">
-        <Frame
-            Grid.Row="0"
-            BackgroundColor="Transparent"
-            CornerRadius="12"
-            BorderColor="white">
+    <Grid BackgroundColor="#fefefe"
+          RowDefinitions="140, *, 70"
+          Padding="25"
+          RowSpacing="25">
+        <Frame Grid.Row="0"
+               BackgroundColor="Transparent"
+               CornerRadius="12"
+               BorderColor="white">
             <StackLayout>
-                <Label 
-                    Text="Libreria Grupo 1"
-                    TextColor="Black"
-                    FontSize="25"
-                    HorizontalOptions="CenterAndExpand" />
+                <Label Text="Libreria Grupo 1"
+                       TextColor="Black"
+                       FontSize="25"
+                       HorizontalOptions="CenterAndExpand" />
 
                 <Grid>
-
                     <StackLayout Grid.Row="0" Grid.Column="0">
-                                <Image Source="library.png"
-                                    HeightRequest="30"
-                                   />
+                        <Image Source="library.png"
+                               HeightRequest="30"/>
                     </StackLayout>
                 </Grid>
-
             </StackLayout>
         </Frame>
-        <Frame
-            Grid.Row="1"
-            BackgroundColor="Transparent"
-            >
-            <Grid
-                RowDefinitions="*,*,*,*,*">
-                <StackLayout 
-                    Orientation="Horizontal"
-                    Grid.Row="0">
-                    <Image 
-                        Source="stackbooks"
-                        Grid.Column="0"
-                        WidthRequest="40"/>
-                    <Label
-                        Text="Mantenimientos de libros"
-                        TextColor="#6C6A61"
-                        FontSize="15"
-                        Grid.Column="1"
-                        VerticalOptions="Center"/>
+        <Frame Grid.Row="1"
+               BackgroundColor="Transparent">
+            <Grid RowDefinitions="*, *, *">
+                <StackLayout Orientation="Horizontal" Grid.Row="0">
+                    <Image Source="stackbooks"
+                           Grid.Column="0"
+                           WidthRequest="40"/>
+                    <Label Text="Mantenimientos de libros"
+                           TextColor="#6C6A61"
+                           FontSize="15"
+                           Grid.Column="1"
+                           VerticalOptions="Center"/>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding NavegarMantenimientocommand}" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
-                <StackLayout 
-                    Orientation="Horizontal"
-                    Grid.Row="1">
-                    <Image 
-                        Source="stats"
-                        Grid.Column="0"
-                        WidthRequest="40"/>
-                    <Label
-                        Text="Reportes"
-                        TextColor="#6C6A61"
-                        FontSize="15"
-                        Grid.Column="1"
-                        VerticalOptions="Center"/>
+                <StackLayout Orientation="Horizontal" Grid.Row="1">
+                    <Image Source="stats"
+                           Grid.Column="0"
+                           WidthRequest="40"/>
+                    <Label Text="Reportes"
+                           TextColor="#6C6A61"
+                           FontSize="15"
+                           Grid.Column="1"
+                           VerticalOptions="Center"/>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding NavegarReportescommand}" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
-                <StackLayout 
-                    Orientation="Horizontal"
-                    Grid.Row="2">
-                    <Image 
-                        Source="programming"
-                        Grid.Column="0"
-                        WidthRequest="40"/>
-                    <Label
-                        Text="Desarrollado por : Remy - Jose"
-                        TextColor="#6C6A61"
-                        FontSize="15"
-                        Grid.Column="1"
-                        VerticalOptions="Center"/>
+                <StackLayout Orientation="Horizontal" Grid.Row="2">
+                    <Image Source="programming"
+                           Grid.Column="0"
+                           WidthRequest="40"/>
+                    <Label Text="Desarrollado por : Remy - Jose"
+                           TextColor="#6C6A61"
+                           FontSize="15"
+                           Grid.Column="1"
+                           VerticalOptions="Center"/>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding NavegarCreadoporcommand}" />
                     </StackLayout.GestureRecognizers>
@@ -94,32 +73,25 @@
             </Grid>
         </Frame>
 
-
-
-
         <StackLayout Grid.Row="2">
-
-            <Label  TextColor="#6C6A61"
-                    Text="Usuario Conectado:"
-                    FontSize="20"
-                    HorizontalOptions="CenterAndExpand"
-                    FontAttributes="Bold" 
-                    HorizontalTextAlignment="Center"
-                   />
+            <Label TextColor="#6C6A61"
+                   Text="Usuario Conectado:"
+                   FontSize="20"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"/>
         </StackLayout>
 
-        <Frame
-            Grid.Row="2"
-            BackgroundColor="Transparent"
-            BorderColor="white">
-            <Label  TextColor="Black"
-                    FontSize="15"
-                    HorizontalOptions="CenterAndExpand"
-                    FontAttributes="Bold" 
-                    HorizontalTextAlignment="Center"
-                    Padding="2"
+        <Frame Grid.Row="2"
+               BackgroundColor="Transparent"
+               BorderColor="white">
+            <Label TextColor="Black"
+                   FontSize="15"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Padding="2"
                    x:Name="txtusuariologueado"/>
-
         </Frame>
     </Grid>
 </ContentPage>
