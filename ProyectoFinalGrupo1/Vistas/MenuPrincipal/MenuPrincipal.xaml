@@ -7,7 +7,7 @@
              NavigationPage.HasNavigationBar="True" >
 
     <Grid
-        BackgroundColor="blue"
+        BackgroundColor="#fefefe"
         RowDefinitions="140, *,70"
         Padding="25"
         RowSpacing="25">
@@ -18,62 +18,38 @@
             BorderColor="white">
             <StackLayout>
                 <Label 
-                    Text="Clínica Rompe Corazones"
-                    TextColor="LightGray"
-                    FontSize="27"
+                    Text="Libreria Grupo 1"
+                    TextColor="Black"
+                    FontSize="25"
                     HorizontalOptions="CenterAndExpand" />
 
                 <Grid>
 
                     <StackLayout Grid.Row="0" Grid.Column="0">
-                        <forms:AnimationView x:Name="animacion" Grid.Row="0"
-                                 Animation="rompecorazon.json"
-                                  HeightRequest="60"
-                                     HorizontalOptions="End"
-                                WidthRequest="80"
-                                 AutoPlay="true"
-                                 RepeatMode="Infinite"
-                                 VerticalOptions="Center"/>
+                                <Image Source="library.png"
+                                    HeightRequest="30"
+                                   />
                     </StackLayout>
-                    
-
-                    <StackLayout Grid.Row="0" Grid.Column="1">
-                        <Image Source="oym.png"
-                       HeightRequest="60" 
-                       BackgroundColor="blue"/>
-                    </StackLayout >
-                    
-                    <StackLayout Grid.Row="0" Grid.Column="2">
-                        <Label 
-                    Text="CRC"
-                    TextColor="LightGray"
-                    FontSize="25"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Start" />
-                    </StackLayout >
-
-
                 </Grid>
-
 
             </StackLayout>
         </Frame>
         <Frame
             Grid.Row="1"
             BackgroundColor="Transparent"
-            BorderColor="White">
+            >
             <Grid
                 RowDefinitions="*,*,*,*,*">
                 <StackLayout 
                     Orientation="Horizontal"
                     Grid.Row="0">
                     <Image 
-                        Source="mantenimientoicon"
+                        Source="stackbooks"
                         Grid.Column="0"
                         WidthRequest="40"/>
                     <Label
-                        Text="Mantenimientos"
-                        TextColor="White"
+                        Text="Mantenimientos de libros"
+                        TextColor="#6C6A61"
                         FontSize="15"
                         Grid.Column="1"
                         VerticalOptions="Center"/>
@@ -85,12 +61,12 @@
                     Orientation="Horizontal"
                     Grid.Row="1">
                     <Image 
-                        Source="reportesicon"
+                        Source="stats"
                         Grid.Column="0"
                         WidthRequest="40"/>
                     <Label
                         Text="Reportes"
-                        TextColor="white"
+                        TextColor="#6C6A61"
                         FontSize="15"
                         Grid.Column="1"
                         VerticalOptions="Center"/>
@@ -102,12 +78,12 @@
                     Orientation="Horizontal"
                     Grid.Row="2">
                     <Image 
-                        Source="hechoporicon"
+                        Source="programming"
                         Grid.Column="0"
                         WidthRequest="40"/>
                     <Label
-                        Text="Creado por"
-                        TextColor="White"
+                        Text="Desarrollado por : Remy - Jose"
+                        TextColor="#6C6A61"
                         FontSize="15"
                         Grid.Column="1"
                         VerticalOptions="Center"/>
@@ -123,7 +99,7 @@
 
         <StackLayout Grid.Row="2">
 
-            <Label  TextColor="yellow"
+            <Label  TextColor="#6C6A61"
                     Text="Usuario Conectado:"
                     FontSize="20"
                     HorizontalOptions="CenterAndExpand"
@@ -136,7 +112,7 @@
             Grid.Row="2"
             BackgroundColor="Transparent"
             BorderColor="white">
-            <Label  TextColor="white"
+            <Label  TextColor="Black"
                     FontSize="15"
                     HorizontalOptions="CenterAndExpand"
                     FontAttributes="Bold" 
