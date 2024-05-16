@@ -1,85 +1,138 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="ProyectoFinalGrupo1.Vistas.MenuPrincipal.MenuPrincipal"
              Title="MENU PRINCIPAL"
              NavigationPage.HasNavigationBar="True">
 
-    <Grid BackgroundColor="#fefefe"
-          RowDefinitions="140, *, 70"
-          Padding="25"
-          RowSpacing="25">
-        <Frame Grid.Row="0"
-               BackgroundColor="Transparent"
-               CornerRadius="12"
-               BorderColor="white">
-            <StackLayout>
-                <Label Text="Libreria Grupo 1"
-                       TextColor="Black"
-                       FontSize="25"
-                       HorizontalOptions="CenterAndExpand" />
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="White" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-                <Grid>
-                    <StackLayout Grid.Row="0" Grid.Column="0">
-                        <Image Source="library.png"
-                               HeightRequest="30"/>
+                <!-- Header -->
+                <StackLayout Grid.Row="0" Margin="20" Padding="20" BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center" Spacing="15">
+                    <Image Source="biblioteca.png"
+                           HeightRequest="200"
+                           WidthRequest="200"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+
+                    <Label Text="Bienvenido a la biblioteca Grupo 1"
+                           TextColor="#333333"
+                           FontSize="25"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalTextAlignment="Center"/>
+                </StackLayout>
+
+                <!-- Main Content -->
+                <Frame Grid.Row="1" Margin="20" Padding="20" BackgroundColor="White" BorderColor="#2b3280" HasShadow="True" CornerRadius="10">
+                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="15">
+                        <StackLayout Orientation="Horizontal" Padding="10,0" HorizontalOptions="Start">
+                            <Image Source="stackbooks"
+                                   WidthRequest="40"
+                                   VerticalOptions="Center"/>
+                            <Label Text="Mantenimiento de socios"
+                                   TextColor="#333333"
+                                   FontSize="15"
+                                   VerticalOptions="Center"
+                                   Margin="10,0">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavegarMantenimientoCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Padding="10,0" HorizontalOptions="Start">
+                            <Image Source="programming"
+                                   WidthRequest="40"
+                                   VerticalOptions="Center"/>
+                            <Label Text="Desarrollado por Remy y José"
+                                   TextColor="#333333"
+                                   FontSize="15"
+                                   VerticalOptions="Center"
+                                   Margin="10,0">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding MostrarPopupCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
                     </StackLayout>
-                </Grid>
-            </StackLayout>
-        </Frame>
-        <Frame Grid.Row="1"
-               BackgroundColor="Transparent">
-            <Grid RowDefinitions="*, *, *">
-                <StackLayout Orientation="Horizontal" Grid.Row="0">
-                    <Image Source="stackbooks"
-                           Grid.Column="0"
-                           WidthRequest="40"/>
-                    <Label Text="Mantenimiento del sistema"
+                </Frame>
+
+                <!-- Footer -->
+                <StackLayout Grid.Row="2" HorizontalOptions="Center">
+                    <Label Text="Usuario Conectado:"
                            TextColor="#6C6A61"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"/>
+                    <Label TextColor="Black"
                            FontSize="15"
-                           Grid.Column="1"
-                           VerticalOptions="Center"/>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NavegarMantenimientoCommand}" />
-                    </StackLayout.GestureRecognizers>
+                           FontAttributes="Bold"
+                           HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"
+                           Padding="2"
+                           Text="{Binding Usuario}"/>
                 </StackLayout>
-               
-                <StackLayout Orientation="Horizontal" Grid.Row="1">
-                    <Image Source="programming"
-                           Grid.Column="0"
-                           WidthRequest="40"/>
-                    <Label Text="Desarrollado por: Remy - Jose"
-                           TextColor="#6C6A61"
-                           FontSize="15"
-                           Grid.Column="1"
-                           VerticalOptions="Center"/>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NavegarCreadoporcommand}" />
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
+
+                <!-- Popup -->
+            <ContentView x:Name="popupCreadopor" BackgroundColor="#f5f5f5" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Frame Margin="10" Padding="20" BackgroundColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                    <StackLayout Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="10"/> <!-- Espacio entre las imágenes -->
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Spacing="5">
+                                <Image Source="remy.png" WidthRequest="100" HeightRequest="100" Aspect="AspectFill">
+                                    <Image.Clip>
+                                        <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                                    </Image.Clip>
+                                </Image>
+                                <Label Text="Remy Acosta" HorizontalOptions="Center" FontSize="15" FontAttributes="Bold"/>
+                                <Label Text="14-sisn-6-067" HorizontalOptions="Center" FontSize="12"/>
+                            </StackLayout>
+                            <StackLayout Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" Spacing="5">
+                                <Image Source="jose.png" WidthRequest="100" HeightRequest="100" Aspect="AspectFill">
+                                    <Image.Clip>
+                                        <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                                    </Image.Clip>
+                                </Image>
+                                <Label Text="José Reyes" HorizontalOptions="Center" FontSize="15" FontAttributes="Bold"/>
+                                <Label Text="Matrícula: 14-sisn-6-067" HorizontalOptions="Center" FontSize="12"/>
+                            </StackLayout>
+                        </Grid>
+                        <Button HorizontalOptions="FillAndExpand"
+                                BackgroundColor="#2b3280"
+                                TextColor="White"
+                                x:Name="btnCerrarPopup"
+                                Clicked="btnCerrarPopup_Clicked"
+                                Text="Aceptar"
+                                CornerRadius="10"/>
+                        <Label Text="Universidad Dominicana OyM"
+                               TextColor="Gray"
+                               FontSize="12"
+                               HorizontalOptions="Center"
+                               VerticalTextAlignment="Center"/>
+                        <Label Text="Recinto Santo Domingo Este, mes de Mayo, día 16 del 2024. Trabajo correspondiente a la materia de Desarrollo de Apps móviles con Xamarin Forms"
+                               TextColor="Gray"
+                               FontSize="12"
+                               HorizontalOptions="Center"
+                               VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                </Frame>
+            </ContentView>
+
             </Grid>
-        </Frame>
-
-        <StackLayout Grid.Row="2">
-            <Label TextColor="#6C6A61"
-                   Text="Usuario Conectado:"
-                   FontSize="20"
-                   HorizontalOptions="CenterAndExpand"
-                   FontAttributes="Bold"
-                   HorizontalTextAlignment="Center"/>
-        </StackLayout>
-
-        <Frame Grid.Row="2"
-               BackgroundColor="Transparent"
-               BorderColor="white">
-            <Label TextColor="Black"
-                   FontSize="15"
-                   HorizontalOptions="CenterAndExpand"
-                   FontAttributes="Bold"
-                   HorizontalTextAlignment="Center"
-                   Padding="2"
-                   Text="{Binding Usuario}"/>
-        </Frame>
-    </Grid>
+        </AbsoluteLayout>
+    </ContentPage.Content>
 </ContentPage>

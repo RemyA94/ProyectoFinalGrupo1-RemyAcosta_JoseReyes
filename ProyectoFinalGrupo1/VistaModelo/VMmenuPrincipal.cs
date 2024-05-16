@@ -35,6 +35,7 @@ namespace ProyectoFinalGrupo1.VistaModelo
          VolverCommand = new Command(async () => await Volver());
          NavegarMantenimientoCommand = new Command(async () => await NavegarMenuMantenimiento());
          NavegarReportesCommand = new Command(async () => await NavegarMenuReportes());
+         MostrarPopupCommand = new Command(() => MessagingCenter.Send(this, "MostrarPopup"));
       }
 
       private async Task Volver()
@@ -55,5 +56,6 @@ namespace ProyectoFinalGrupo1.VistaModelo
       public Command VolverCommand { get; private set; }
       public Command NavegarMantenimientoCommand { get; private set; }
       public Command NavegarReportesCommand { get; private set; }
+      public Command MostrarPopupCommand { get; private set; }
    }
 }
