@@ -4,113 +4,68 @@
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="ProyectoFinalGrupo1.Vistas.MenuPrincipal.MenuPrincipal"
              Title="MENU PRINCIPAL"
-             NavigationPage.HasNavigationBar="True" >
+             NavigationPage.HasNavigationBar="True">
 
-    <Grid
-        BackgroundColor="blue"
-        RowDefinitions="140, *,70"
-        Padding="25"
-        RowSpacing="25">
-        <Frame
-            Grid.Row="0"
-            BackgroundColor="Transparent"
-            CornerRadius="12"
-            BorderColor="white">
+    <Grid BackgroundColor="#fefefe"
+          RowDefinitions="140, *, 70"
+          Padding="25"
+          RowSpacing="25">
+        <Frame Grid.Row="0"
+               BackgroundColor="Transparent"
+               CornerRadius="12"
+               BorderColor="white">
             <StackLayout>
-                <Label 
-                    Text="Clínica Rompe Corazones"
-                    TextColor="LightGray"
-                    FontSize="27"
-                    HorizontalOptions="CenterAndExpand" />
+                <Label Text="Libreria Grupo 1"
+                       TextColor="Black"
+                       FontSize="25"
+                       HorizontalOptions="CenterAndExpand" />
 
                 <Grid>
-
                     <StackLayout Grid.Row="0" Grid.Column="0">
-                        <forms:AnimationView x:Name="animacion" Grid.Row="0"
-                                 Animation="rompecorazon.json"
-                                  HeightRequest="60"
-                                     HorizontalOptions="End"
-                                WidthRequest="80"
-                                 AutoPlay="true"
-                                 RepeatMode="Infinite"
-                                 VerticalOptions="Center"/>
+                        <Image Source="library.png"
+                               HeightRequest="30"/>
                     </StackLayout>
-                    
-
-                    <StackLayout Grid.Row="0" Grid.Column="1">
-                        <Image Source="oym.png"
-                       HeightRequest="60" 
-                       BackgroundColor="blue"/>
-                    </StackLayout >
-                    
-                    <StackLayout Grid.Row="0" Grid.Column="2">
-                        <Label 
-                    Text="CRC"
-                    TextColor="LightGray"
-                    FontSize="25"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Start" />
-                    </StackLayout >
-
-
                 </Grid>
-
-
             </StackLayout>
         </Frame>
-        <Frame
-            Grid.Row="1"
-            BackgroundColor="Transparent"
-            BorderColor="White">
-            <Grid
-                RowDefinitions="*,*,*,*,*">
-                <StackLayout 
-                    Orientation="Horizontal"
-                    Grid.Row="0">
-                    <Image 
-                        Source="mantenimientoicon"
-                        Grid.Column="0"
-                        WidthRequest="40"/>
-                    <Label
-                        Text="Mantenimientos"
-                        TextColor="White"
-                        FontSize="15"
-                        Grid.Column="1"
-                        VerticalOptions="Center"/>
+        <Frame Grid.Row="1"
+               BackgroundColor="Transparent">
+            <Grid RowDefinitions="*, *, *">
+                <StackLayout Orientation="Horizontal" Grid.Row="0">
+                    <Image Source="stackbooks"
+                           Grid.Column="0"
+                           WidthRequest="40"/>
+                    <Label Text="Mantenimientos de libros"
+                           TextColor="#6C6A61"
+                           FontSize="15"
+                           Grid.Column="1"
+                           VerticalOptions="Center"/>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding NavegarMantenimientocommand}" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
-                <StackLayout 
-                    Orientation="Horizontal"
-                    Grid.Row="1">
-                    <Image 
-                        Source="reportesicon"
-                        Grid.Column="0"
-                        WidthRequest="40"/>
-                    <Label
-                        Text="Reportes"
-                        TextColor="white"
-                        FontSize="15"
-                        Grid.Column="1"
-                        VerticalOptions="Center"/>
+                <StackLayout Orientation="Horizontal" Grid.Row="1">
+                    <Image Source="stats"
+                           Grid.Column="0"
+                           WidthRequest="40"/>
+                    <Label Text="Reportes"
+                           TextColor="#6C6A61"
+                           FontSize="15"
+                           Grid.Column="1"
+                           VerticalOptions="Center"/>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding NavegarReportescommand}" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
-                <StackLayout 
-                    Orientation="Horizontal"
-                    Grid.Row="2">
-                    <Image 
-                        Source="hechoporicon"
-                        Grid.Column="0"
-                        WidthRequest="40"/>
-                    <Label
-                        Text="Creado por"
-                        TextColor="White"
-                        FontSize="15"
-                        Grid.Column="1"
-                        VerticalOptions="Center"/>
+                <StackLayout Orientation="Horizontal" Grid.Row="2">
+                    <Image Source="programming"
+                           Grid.Column="0"
+                           WidthRequest="40"/>
+                    <Label Text="Desarrollado por : Remy - Jose"
+                           TextColor="#6C6A61"
+                           FontSize="15"
+                           Grid.Column="1"
+                           VerticalOptions="Center"/>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding NavegarCreadoporcommand}" />
                     </StackLayout.GestureRecognizers>
@@ -118,32 +73,25 @@
             </Grid>
         </Frame>
 
-
-
-
         <StackLayout Grid.Row="2">
-
-            <Label  TextColor="yellow"
-                    Text="Usuario Conectado:"
-                    FontSize="20"
-                    HorizontalOptions="CenterAndExpand"
-                    FontAttributes="Bold" 
-                    HorizontalTextAlignment="Center"
-                   />
+            <Label TextColor="#6C6A61"
+                   Text="Usuario Conectado:"
+                   FontSize="20"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"/>
         </StackLayout>
 
-        <Frame
-            Grid.Row="2"
-            BackgroundColor="Transparent"
-            BorderColor="white">
-            <Label  TextColor="white"
-                    FontSize="15"
-                    HorizontalOptions="CenterAndExpand"
-                    FontAttributes="Bold" 
-                    HorizontalTextAlignment="Center"
-                    Padding="2"
+        <Frame Grid.Row="2"
+               BackgroundColor="Transparent"
+               BorderColor="white">
+            <Label TextColor="Black"
+                   FontSize="15"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Padding="2"
                    x:Name="txtusuariologueado"/>
-
         </Frame>
     </Grid>
 </ContentPage>

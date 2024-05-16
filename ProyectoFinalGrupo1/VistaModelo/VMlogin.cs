@@ -71,7 +71,7 @@ namespace ProyectoFinalGrupo1.VistaModelo
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Advertencia", "Las credenciales introducidas son incorrectos o el usuario se encuentra inactivo.", "Aceptar");
+                await App.Current.MainPage.DisplayAlert("Error", "Usuario o clave incorrecto.", "Intentar de nuevo");
             }
         }
         #endregion
