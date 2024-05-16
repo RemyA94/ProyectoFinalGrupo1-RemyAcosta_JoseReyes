@@ -21,30 +21,16 @@ namespace ProyectoFinalGrupo1.Data
             try
             {
                 return (await FireBaseDBConn.FireBase_Connect
-                    .Child("Medicos")
+                    .Child("libros")
                     .OrderByKey()
                     .OnceAsync<Mmedicos>())
                     .Select(datos => new Mmedicos
                     {
-                        ID_MedicoFirebase = datos.Key,
-                        ID_Medico = datos.Object.ID_Medico,
-                        Nombre = datos.Object.Nombre,
-                        Apellido = datos.Object.Apellido,
+                        idLibroFirebase = datos.Key,
+                        idLibro = datos.Object.idLibro,
+                        nombre = datos.Object.nombre,
+                        status = datos.Object.status,
 
-                        Especialidad = new Mespecialidad
-                       // {
-                       //     Id_Especialidad = datos.Object.Especialidad.Id_Especialidad,
-                        //    Especialidad = datos.Object.Especialidad.Especialidad,
-                        //   },
-                        {
-                            idsocio = "d", //datos.Object.Especialidad.Id_Especialidad,
-                            nombre = "d" //Object.Especialidad.Especialidad,
-                        },
-                        Genero = datos.Object.Genero,
-                        Telefono = datos.Object.Telefono,
-                        Email = datos.Object.Email,
-                        Estado = datos.Object.Estado,
-                        FechaRegistro = datos.Object.FechaRegistro
 
                     }).ToList();
             }
@@ -66,28 +52,13 @@ namespace ProyectoFinalGrupo1.Data
             try
             {
                 await FireBaseDBConn.FireBase_Connect
-                .Child("Medicos")
+                .Child("libros")
                 .PostAsync(new Mmedicos()
-                {
-                     ID_Medico = objmedico.ID_Medico,
-                    Nombre = objmedico.Nombre,
-                    Apellido = objmedico.Apellido,
-
-                    Especialidad = new Mespecialidad
-                    // {
-                    //   Id_Especialidad = objmedico.Especialidad.Id_Especialidad,
-                    //     Especialidad = objmedico.Especialidad.Especialidad
-                    //   },
-
-                    {
-                        idsocio = "idsocios", //objmedico.Especialidad.Id_Especialidad,
-                        nombre =  "idsocios" //objmedico.Especialidad.Especialidad
-                    },
-                    Genero = objmedico.Genero,
-                    Telefono = objmedico.Telefono,
-                    Email = objmedico.Email,
-                    Estado = objmedico.Estado,
-                    FechaRegistro = objmedico.FechaRegistro
+                {   
+                    
+                     idLibro = objmedico.idLibro,
+                    nombre = objmedico.nombre,
+                    status = objmedico.status,
 
                 });
                 return true;
@@ -109,32 +80,17 @@ namespace ProyectoFinalGrupo1.Data
             try
             {
                 var modalm = (await FireBaseDBConn.FireBase_Connect
-                    .Child("Medicos")
-                    .OnceAsync<Mmedicos>()).Where(p => p.Object.ID_Medico == objmedico.ID_Medico).FirstOrDefault();
+                    .Child("libros")
+                    .OnceAsync<Mmedicos>()).Where(p => p.Object.nombre == objmedico.nombre).FirstOrDefault();
                 await FireBaseDBConn.FireBase_Connect
                     .Child("Medicos")
                     .Child(modalm.Key)
                     .PutAsync(new Mmedicos()
                     {
-                        ID_Medico = objmedico.ID_Medico,
-                        Nombre = objmedico.Nombre,
-                        Apellido = objmedico.Apellido,
+                        idLibro = objmedico.idLibro,
+                        nombre = objmedico.nombre,
+                        status = objmedico.status
 
-                        Especialidad = new Mespecialidad
-                        //{
-                        //     Id_Especialidad = objmedico.Especialidad.Id_Especialidad,
-                        //       Especialidad = objmedico.Especialidad.Especialidad
-                        //   },
-
-                        {
-                            nombre = "s", //objmedico.Especialidad.Id_Especialidad,
-                            idsocio = "s", // objmedico.Especialidad.Especialidad
-                        },
-                        Genero = objmedico.Genero,
-                        Telefono = objmedico.Telefono,
-                        Email = objmedico.Email,
-                        Estado = objmedico.Estado,
-                        FechaRegistro = objmedico.FechaRegistro
                     });
                 return true;
             }
@@ -155,8 +111,8 @@ namespace ProyectoFinalGrupo1.Data
             try
             {
                 var borrar = (await FireBaseDBConn.FireBase_Connect
-                    .Child("Medicos")
-                    .OnceAsync<Mmedicos>()).Where(p => p.Object.ID_Medico == objmedico.ID_Medico).FirstOrDefault();
+                    .Child("libros")
+                    .OnceAsync<Mmedicos>()).Where(p => p.Object.idLibro == objmedico.idLibro).FirstOrDefault();
                 await FireBaseDBConn.FireBase_Connect.Child("Medicos").Child(borrar.Key).DeleteAsync();
                 return true;
             }

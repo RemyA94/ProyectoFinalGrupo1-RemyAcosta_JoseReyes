@@ -6,15 +6,9 @@ namespace ProyectoFinalGrupo1.Modelo
 {
     public class Mmedicos
     {
-        public string ID_MedicoFirebase { get; set; }
-        public string ID_Medico { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public Mespecialidad Especialidad { get; set; }
-        public string Genero { get; set; }
-        public string Telefono { get; set; }
-        public string Email { get; set; }
-        public string Estado { get; set; }
-        public string FechaRegistro { get; set; }
+        public string idLibroFirebase { get; set; }
+        public string idLibro { get; set; }
+        public string nombre { get; set; }
+        public string status { get; set; }
     }
 }

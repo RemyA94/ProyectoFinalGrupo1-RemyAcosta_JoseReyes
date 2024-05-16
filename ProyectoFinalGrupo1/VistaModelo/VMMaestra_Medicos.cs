@@ -289,32 +289,15 @@ namespace ProyectoFinalGrupo1.VistaModelo
         {
             try
             {
-                if (ColorFondoId == System.Drawing.Color.Transparent)
-                {
-                    await App.Current.MainPage.DisplayAlert("Información", "No existen datos que guardar.", "Aceptar");
-                    return;
-                }
+                
                 #region Reglas para la insercion de los datos
                 if (string.IsNullOrEmpty(txtnombremedico))
                 {
                     await App.Current.MainPage.DisplayAlert("Advertencia", "Debe de indicar un nombre.", "Aceptar");
                     return;
                 }
-                if (string.IsNullOrEmpty(txtapellidomedico))
-                {
-                    await App.Current.MainPage.DisplayAlert("Advertencia", "Debe de indicar un apellido", "Aceptar");
-                    return;
-                }
-                if (string.IsNullOrEmpty(txttelefono))
-                {
-                    await App.Current.MainPage.DisplayAlert("Advertencia", "Debe de colocar un número de contacto.", "Aceptar");
-                    return;
-                }
-                if (txtnombreespecialidad == "")
-                {
-                    await App.Current.MainPage.DisplayAlert("Advertencia", "Debe de colocar el nombre de la especialidad", "Aceptar");
-                    return;
-                }
+               
+              
                 //Validar estado
                 if (ChkEstadoValidar == true)
                     estado = "Inactivo";
@@ -325,26 +308,14 @@ namespace ProyectoFinalGrupo1.VistaModelo
                 //Instanciamos el modelo para obtener los datos introducidos por el usuario
                 var objmedicos = new Mmedicos
                 {
-                    ID_Medico = idmedico,
-                    Nombre = nombremedico,
-                    Apellido = apellidomedico,
-                    Genero = genero,
-                    Telefono = telefono,
-                    Email = email,
-
-                    Especialidad = new Mespecialidad
-                    {
-                        idsocio = idsocio,
-                        nombre = nombre
-                    },
-
-                    Estado = estado,
-                    FechaRegistro = fecharegistro
+                    idLibro = idmedico,
+                    nombre = nombremedico,
+                    status = estado
                 };
 
                 if (ColorFondoId == System.Drawing.Color.LightGreen)
                 {
-                    if (objmedicos.Estado == "Inactivo")
+                    if (objmedicos.status == "Inactivo")
                     {
                         await App.Current.MainPage.DisplayAlert("Advertencia", "No se puede insertar un medico como inactivo.", "Aceptar");
                     }
@@ -395,23 +366,23 @@ namespace ProyectoFinalGrupo1.VistaModelo
                 List<Mmedicos> cargardatos = await dbmedicos.ListarMedicos();
                 var objmedicos = new Mmedicos
                 {
-                    ID_Medico = idmedico
+                    idLibro = idmedico
                 };
-                var datosencontrados = cargardatos.Where(buscar => buscar.ID_Medico == objmedicos.ID_Medico).FirstOrDefault();
+                var datosencontrados = cargardatos.Where(buscar => buscar.idLibro == objmedicos.idLibro).FirstOrDefault();
                 if (datosencontrados != null)
                 {
 
-                    txtidmedico = datosencontrados.ID_Medico;
-                    txtnombremedico = datosencontrados.Nombre;
-                    txtapellidomedico = datosencontrados.Apellido;
-                    txtgenero = datosencontrados.Genero;
-                    txttelefono = datosencontrados.Telefono;
-                    txtemail = datosencontrados.Email;
-                    txtestado = datosencontrados.Estado;
-                    txtidespecialidad = datosencontrados.Especialidad.idsocio;
-                    txtnombreespecialidad = datosencontrados.Especialidad.idsocio;
-                    
-                    txtfecharegistro = datosencontrados.FechaRegistro;
+                    txtidmedico = datosencontrados.idLibro;
+                    txtnombremedico = datosencontrados.nombre;
+                    txtapellidomedico = "nombre a borrar";
+                    txtgenero = "genero a borrar";
+                    txttelefono =  "Telefono a borrar";
+                    txtemail = "Telefono a borrar";
+                    txtestado = datosencontrados.status;
+                    txtidespecialidad =  "Especialidad a borrar";
+                    txtnombreespecialidad = "Especialidad a borrar";
+
+                    txtfecharegistro =  "Telefono a borrar";
                     ColorFondoId = System.Drawing.Color.Khaki;
                     IsEnebledModificar = false;
                     IsEnebledCrear = false;
@@ -436,7 +407,7 @@ namespace ProyectoFinalGrupo1.VistaModelo
             {
                 var objmedico = new Mmedicos()
                 {
-                    ID_Medico = idmedico
+                    idLibro = idmedico
                 };
 
                 if (string.IsNullOrEmpty(txtidmedico))
@@ -587,16 +558,10 @@ namespace ProyectoFinalGrupo1.VistaModelo
 
 
             // Cargar datos del id seleccionado
-            txtidmedico = objmedicos.ID_Medico;
-            txtnombremedico = objmedicos.Nombre;
-            txtapellidomedico = objmedicos.Apellido;
-            txtgenero = objmedicos.Genero;
-            txttelefono = objmedicos.Telefono;
-            txtemail = objmedicos.Email;
-            txtfecharegistro = objmedicos.FechaRegistro;
-            txtidespecialidad = objmedicos.Especialidad.idsocio;
-            txtnombreespecialidad = objmedicos.Especialidad.idsocio;
-            if (objmedicos.Estado == "Inactivo")
+
+            txtidmedico = objmedicos.idLibro;
+            txtnombremedico = objmedicos.nombre;
+            if (objmedicos.status == "Inactivo")
                 ChkEstadoValidar = true;
             else
                 ChkEstadoValidar = false;

@@ -313,35 +313,7 @@ namespace ProyectoFinalGrupo1.VistaModelo
                 {
                     await App.Current.MainPage.DisplayAlert("Información", "Debe seleccionar una especialidad.", "Aceptar");
                 }
-                else
-                {
-                    string respuesta = await App.Current.MainPage.DisplayActionSheet("¿Seguro que desea borrar esta especialidad?", "Cancelar", null, "Si", "No");
-                    if (respuesta == "Si")
-                    {
-                        bool relacion = ListEspObtenida.Select(r => r.Especialidad.idsocio == objespecialidad.idsocio).FirstOrDefault();
-                        if (relacion == true)
-                        {
-                            await App.Current.MainPage.DisplayAlert("Advertecia", "No se puede borrar una especialidad que esté relacionada a un doctor.", "Aceptar");
-                        }
-                        else
-                        {
-                            CorrerBarra = true;
-                            IsVisible = true;
-                            await Task.Delay(1000);
-
-                            await db.BorrarEspecialidad(objespecialidad);
-
-                            CorrerBarra = false;
-                            IsVisible = false;
-                            ColorFondoId = System.Drawing.Color.Transparent;
-                            ChkEstadoValidar = false;
-                            IsEnebledCancelar = false;
-                            IsEnebledGuardar = false;
-                            await App.Current.MainPage.DisplayAlert("Información", "Datos borrados exitosamente.", "Aceptar");
-                            await App.Current.MainPage.Navigation.PushAsync(new AgregarModificar_EspecialidadesPage());
-                        }
-                    }
-                }
+               
             }
             catch (Exception ex)
             {

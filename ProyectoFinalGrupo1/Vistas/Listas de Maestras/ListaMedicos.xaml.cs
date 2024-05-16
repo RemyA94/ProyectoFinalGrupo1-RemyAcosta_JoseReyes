@@ -31,7 +31,7 @@ namespace ProyectoFinalGrupo1.Vistas.Listas_de_Maestras
             }
             else
             {
-                ListaDatosMedicos.ItemsSource = buscarmed.ColeccionMed.Where(a => a.Nombre.Contains(e.NewTextValue) || a.Apellido.Contains(e.NewTextValue) || a.Especialidad.idsocio.Contains(e.NewTextValue));
+                ListaDatosMedicos.ItemsSource = buscarmed.ColeccionMed.Where(a => a.nombre.Contains(e.NewTextValue) || a.nombre.Contains(e.NewTextValue) || a.nombre.Contains(e.NewTextValue));
             }
             ListaDatosMedicos.EndRefresh();
 
