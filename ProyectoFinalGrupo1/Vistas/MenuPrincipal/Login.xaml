@@ -4,7 +4,7 @@
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="ProyectoFinalGrupo1.Vistas.MenuPrincipal.Login">
     <Grid
-        BackgroundColor="blue"
+        BackgroundColor="#fefefe"
         RowDefinitions="150,*"
         RowSpacing="25"
         Padding="25">
@@ -14,9 +14,9 @@
             BackgroundColor="Transparent"
             BorderColor="white">
             <Label 
-                Text="Autenticación Usuario"
-                TextColor="white"
-                FontSize="25"
+                Text="Iniciar Sesion"
+                TextColor="Black"
+                FontSize="40"
                 FontAttributes="Bold"
                 HorizontalOptions="CenterAndExpand"
                 VerticalTextAlignment="Center"/>
@@ -41,8 +41,9 @@
                                  VerticalOptions="Center"/>
                     </StackLayout>
                     <StackLayout Grid.Row="0" Grid.Column="1">
-                        <Image Source="key"
+                        <Image 
                                WidthRequest="80"
+                               Source="library.png"
                                VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </Grid>
@@ -51,13 +52,13 @@
                     <Label
                         Grid.Column="0"
                         Text="Correo:"
-                        TextColor="white"
+                        TextColor="#6C6A61"
                         FontSize="20"
                         VerticalOptions="Center"/>
                     <Entry 
                         Text="{Binding txtemail}"
                         x:Name="txtemail"
-                        TextColor="white"
+                        TextColor="Black"
                         ClearButtonVisibility="WhileEditing"
                         Grid.Column="1"/>
                 </Grid>
@@ -65,13 +66,13 @@
                     <Label
                         Grid.Column="0"
                         Text="Clave:"
-                        TextColor="white"
+                        TextColor="#6C6A61"
                         FontSize="20"
                         VerticalOptions="Center"/>
                     <Entry 
                         Text="{Binding txtclave}"
                         x:Name="txtclave"
-                        TextColor="white"
+                        TextColor="Black"
                         ClearButtonVisibility="WhileEditing"
                         Grid.Column="1"
                         IsPassword="True" />
@@ -79,9 +80,7 @@
                 <Button
                     Text="Iniciar sesion"
                     TextColor="white"
-                    BackgroundColor="gray"
-                    BorderWidth="1"
-                    BorderColor="white"
+                    BackgroundColor="#3f51b5"
                     VerticalOptions="EndAndExpand"
                     Command="{Binding LogearUsuarioCommand}"/>
 
@@ -89,8 +88,8 @@
                 <Label Grid.Row="7" HorizontalOptions="Center">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="No tienes una cuenta?   " TextColor="white"/>
-                            <Span Text="Registrate!" TextColor="orange" FontAttributes="Bold" TextDecorations="Underline"/>
+                            <Span Text="¿No tienes una cuenta?   " TextColor="#6C6A61"/>
+                            <Span Text="Create una!" TextColor="#3f51b5" FontAttributes="Bold" TextDecorations="Underline"/>
                         </FormattedString>
                     </Label.FormattedText>
 
