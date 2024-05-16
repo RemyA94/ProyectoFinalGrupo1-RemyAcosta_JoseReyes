@@ -427,7 +427,7 @@ namespace ProyectoFinalGrupo1.VistaModelo
         {
             //Cargar datos del id seleccionado
             txtidespecialidad = obj.idsocio;
-            txtespecialidad = obj.idsocio;
+            txtespecialidad = obj.nombre;
             txtestado = obj.status;
             txtfecharegistro = obj.fechaRegistro;
             if (obj.status == "Inactivo")
