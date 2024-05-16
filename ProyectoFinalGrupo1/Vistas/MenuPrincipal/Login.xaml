@@ -2,96 +2,89 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
-             x:Class="ProyectoFinalGrupo1.Vistas.MenuPrincipal.Login">
-    <Grid
-        BackgroundColor="#fefefe"
-        RowDefinitions="150,*"
-        RowSpacing="25"
-        Padding="25">
-        <Frame
-            Grid.Row="0"
-            CornerRadius="15"
-            BackgroundColor="Transparent"
-            BorderColor="white">
-            <Label 
-                Text="Iniciar Sesion"
-                TextColor="Black"
-                FontSize="40"
-                FontAttributes="Bold"
-                HorizontalOptions="CenterAndExpand"
-                VerticalTextAlignment="Center"/>
-        </Frame>
-        <Frame
-            Grid.Row="1"
-            BackgroundColor="Transparent"
-            BorderColor="white">
-            <StackLayout
-                VerticalOptions="FillAndExpand"
-                HorizontalOptions="FillAndExpand">
-                <Grid>
-                    <StackLayout>
-                        <Image 
-                            WidthRequest="80"
-                            Source="library"
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            Margin="3"                            
-                        />
+             x:Class="ProyectoFinalGrupo1.Vistas.MenuPrincipal.Login"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="CenterAndExpand" Spacing="10" HorizontalOptions="CenterAndExpand">
+                <forms:AnimationView x:Name="LoginAnimacion"
+                                     Animation="LoginAnimacion.json"
+                                     HeightRequest="400"
+                                     WidthRequest="400"
+                                     AutoPlay="true"
+                                     RepeatMode="Infinite"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Center"
+                                     Margin="0,0,0,10"/>
+
+                <Frame BackgroundColor="Transparent" BorderColor="White" HasShadow="False">
+                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="10">
+                
+                    <Label Text="Iniciar sesion"
+                       TextColor="#333333"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       Margin="0,0,0,10"/>
+
+                        <Grid ColumnDefinitions="Auto, *" Padding="10">
+                            <Label Text="Correo:"
+                                   TextColor="#6C6A61"
+                                   FontSize="20"
+                                   VerticalOptions="Center"
+                                   Grid.Column="0"/>
+                            <Entry Text="{Binding txtemail}"
+                                   x:Name="txtemail"
+                                   TextColor="Black"
+                                   ClearButtonVisibility="WhileEditing"
+                                   Grid.Column="1"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="Auto, *" Padding="10">
+                            <Label Text="Clave:"
+                                   TextColor="#6C6A61"
+                                   FontSize="20"
+                                   VerticalOptions="Center"
+                                   Grid.Column="0"/>
+                            <Entry Text="{Binding txtclave}"
+                                   x:Name="txtclave"
+                                   TextColor="Black"
+                                   ClearButtonVisibility="WhileEditing"
+                                   IsPassword="True"
+                                   Grid.Column="1"/>
+                        </Grid>
+
+                        <Grid VerticalOptions="EndAndExpand" Margin="20">
+                            <Button Text="Empezar"
+                                    TextColor="#D3D3D3"
+                                    BackgroundColor="#2b3280"
+                                    TextTransform="None"
+                                    FontAttributes="Bold"
+                                    CornerRadius="10"
+                                    Command="{Binding LogearUsuarioCommand}"/>
+                            <Image Source="fastfoward.png"
+                                   HeightRequest="30"
+                                   HorizontalOptions="End"
+                                   Margin="0,0,18,0"/>
+                        </Grid>
+
+                        <Label HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="¿No tienes una cuenta? " TextColor="#6C6A61"/>
+                                    <Span Text="¡Crea una!" TextColor="#3f51b5" FontAttributes="Bold" TextDecorations="Underline"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
-                </Grid>
-
-                <Grid ColumnDefinitions="auto, *">
-                    <Label
-                        Grid.Column="0"
-                        Text="Correo:"
-                        TextColor="#6C6A61"
-                        FontSize="20"
-                        VerticalOptions="Center"/>
-                    <Entry 
-                        Text="{Binding txtemail}"
-                        x:Name="txtemail"
-                        TextColor="Black"
-                        ClearButtonVisibility="WhileEditing"
-                        Grid.Column="1"/>
-                </Grid>
-                <Grid ColumnDefinitions="auto, *">
-                    <Label
-                        Grid.Column="0"
-                        Text="Clave:"
-                        TextColor="#6C6A61"
-                        FontSize="20"
-                        VerticalOptions="Center"/>
-                    <Entry 
-                        Text="{Binding txtclave}"
-                        x:Name="txtclave"
-                        TextColor="Black"
-                        ClearButtonVisibility="WhileEditing"
-                        Grid.Column="1"
-                        IsPassword="True" />
-                </Grid>
-                <Button
-                    Text="Iniciar sesion"
-                    TextColor="white"
-                    BackgroundColor="#3f51b5"
-                    VerticalOptions="EndAndExpand"
-                    Command="{Binding LogearUsuarioCommand}"/>
-
-
-                <Label Grid.Row="7" HorizontalOptions="Center">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="¿No tienes una cuenta?   " TextColor="#6C6A61"/>
-                            <Span Text="Create una!" TextColor="#3f51b5" FontAttributes="Bold" TextDecorations="Underline"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                    </Label.GestureRecognizers>
-
-                </Label>
-
+                </Frame>
             </StackLayout>
-        </Frame>
-    </Grid>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
