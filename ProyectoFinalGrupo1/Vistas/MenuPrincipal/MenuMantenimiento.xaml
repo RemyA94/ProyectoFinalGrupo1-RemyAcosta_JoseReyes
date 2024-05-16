@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoFinalGrupo1.Vistas.MenuPrincipal.MenuMantenimiento"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="True">
 
     <ContentPage.Content>
         <AbsoluteLayout BackgroundColor="White" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -36,7 +36,7 @@
                             <Image Source="user"
                                    WidthRequest="40"
                                    VerticalOptions="Center"/>
-                            <Label Text="Listado de socios"
+                            <Label Text="Mantenimiento de socios"
                                    TextColor="#333333"
                                    FontSize="15"
                                    VerticalOptions="Center"
@@ -48,10 +48,10 @@
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal" Padding="10,0" HorizontalOptions="Start">
-                            <Image Source="reportesicon"
+                            <Image Source="stackbooks"
                                    WidthRequest="40"
                                    VerticalOptions="Center"/>
-                            <Label Text="Médicos"
+                            <Label Text="Mantenimiento de libros"
                                    TextColor="#333333"
                                    FontSize="15"
                                    VerticalOptions="Center"

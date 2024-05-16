@@ -35,7 +35,7 @@
                     <Image Source="stackbooks"
                            Grid.Column="0"
                            WidthRequest="40"/>
-                    <Label Text="Mantenimientos de socios"
+                    <Label Text="Mantenimiento del sistema"
                            TextColor="#6C6A61"
                            FontSize="15"
                            Grid.Column="1"
@@ -44,24 +44,12 @@
                         <TapGestureRecognizer Command="{Binding NavegarMantenimientoCommand}" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
+               
                 <StackLayout Orientation="Horizontal" Grid.Row="1">
-                    <Image Source="stats"
-                           Grid.Column="0"
-                           WidthRequest="40"/>
-                    <Label Text="Reportes"
-                           TextColor="#6C6A61"
-                           FontSize="15"
-                           Grid.Column="1"
-                           VerticalOptions="Center"/>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NavegarReportesCommand}" />
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" Grid.Row="2">
                     <Image Source="programming"
                            Grid.Column="0"
                            WidthRequest="40"/>
-                    <Label Text="Desarrollado por : Remy - Jose"
+                    <Label Text="Desarrollado por: Remy - Jose"
                            TextColor="#6C6A61"
                            FontSize="15"
                            Grid.Column="1"
